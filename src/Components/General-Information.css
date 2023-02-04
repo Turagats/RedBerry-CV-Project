@@ -1,0 +1,103 @@
+
+
+.landingPageHeader {
+    padding: 1.5625rem 0;
+    border-bottom: 1px solid #1a1a1a;
+}
+
+.landingPageHeaderLogo {
+    width: 14.75rem;
+}
+
+.newResumeAndStamp {
+    position: absolute;
+    left: calc(50% - 14.5rem);
+    top: calc(50% - 1.675rem);
+}
+
+.newResume {
+    font-family: inherit;
+    font-size: 1.25rem;
+    width: 29rem;
+    height: 3.75rem;
+    background-color: #1a1a1a;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 1.125rem 7.875rem;
+
+}
+
+.stamp {
+    width: 18.6875rem;
+    height: 18.6875rem;
+    position: absolute;
+    top: -2.5rem;
+    right: -11.4375rem;
+    z-index: -1;
+} */
+
+.general-information {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #F9F9F9;
+}
+
+.personal-information {
+    display: flex;
+    flex-direction: column;
+    padding: 2.1875rem 9.375rem;
+    width: 57.1875%;
+    min-height: 67.5rem;
+    background-color: inherit;
+}
+
+.back-to-langing-page {
+    background-color: #FFFFFF;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    left: 2.5rem;
+    top: 2.5rem;
+}
+
+.personal-information-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1A1A1A;
+    padding: 0.75rem 0;
+}
+
+.first-last-names {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 6.625rem;
+    margin: 4.8125rem 0 3.375rem 0;
+}
+
+.input-name {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: start;
+    width: 23.1875rem;
+    height: 6.625rem;
+}
+
+.preview {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 42.8125%;
+    min-height: 67.5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+}

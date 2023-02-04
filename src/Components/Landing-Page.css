@@ -6,6 +6,54 @@
 }
 
 
-.logo {
+
+.header-logo {
+    position: absolute;
     width: 236px;
+    height: 38px;
+    left: 70px;
+    top: 25px;
+}
+
+.background-logo {
+    position: absolute;
+    width: 299px;
+    height: 299px;
+    left: 1076px;
+    top: 473px;
+
+    background: url("../UI/Assets/Images/LOGO-40\ 1.svg");
+    mix-blend-mode: multiply;
+}
+
+.button-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 60px;
+    gap: 20px;
+}
+
+.add-resume_button {
+
+
+    position: absolute;
+    width: 464px;
+    height: 60px;
+    left: calc(50% - 464px/2);
+    top: 513px;
+
+    background: #1A1A1A;
+    border-radius: 8px;
+
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #FFFFFF;
+
+
 }

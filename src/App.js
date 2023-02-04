@@ -1,10 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import LandingPage from "./Components/Landing-Page";
 
 function App() {
   return (
-    <div >
-    <h1 class='App'>Gamarjoba</h1>
+    <div>
+      <LandingPage />
     </div>
   );
 }

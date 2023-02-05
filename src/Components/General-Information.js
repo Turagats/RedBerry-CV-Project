@@ -13,7 +13,7 @@ const GeneralInformation = () => {
           <span className="page-number">1/3</span>
         </div>
         <Link to="/">
-          <div className="back-to-langing-page">
+          <div className="back-to-landging-page">
             <img src={forbackEclipse} className="eclipse" alt="back" />
             <img src={forbackVector} className="vector" alt="back" />
           </div>

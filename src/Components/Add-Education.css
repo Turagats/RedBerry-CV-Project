@@ -1,0 +1,14 @@
+.about-education {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2.0625rem;
+}
+
+#about-education-text {
+    margin-top: 0.5rem;
+    padding: 0.875rem 1rem;
+    border: 1px solid #BCBCBC;
+    width: 100%;
+    border: 1px solid #BCBCBC;
+    border-radius: 4px;
+}

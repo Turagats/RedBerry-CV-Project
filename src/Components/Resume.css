@@ -1,19 +1,9 @@
-.newResumeAndStamp {
-    position: absolute;
-    left: calc(50% - 14.5rem);
-    top: calc(50% - 1.675rem);
-  }
-  
-  .newResume {
-    font-family: inherit;
-    font-size: 1.25rem;
-    width: 29rem;
-    height: 3.75rem;
-    background-color: #1a1a1a;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    padding: 1.125rem 7.875rem;
-  
-  }
+.resume-block {
+  position: absolute;
+  width: 822px;
+  height: 1080px;
+  right: 0px;
+  top: 0px;
+
+  background: #FFFFFF;
+}

@@ -82,3 +82,12 @@
 .button-container {
     justify-content: space-between;
 }
+
+.resume-block {
+    position: absolute;
+    width: 822px;
+    height: 1080px;
+    right: 0px;
+    top: 0px;
+    background: #FFFFFF;
+}

@@ -38,7 +38,6 @@ const ExperincePage = () => {
         </div>
       </form>
       <button onClick={onClickaddExperience}>მეტი გამოცდილების დამატება</button>
-
       <div className="button-container">
         <Link to="/general-information">
           <button className="button-previous">უკან</button>
@@ -47,7 +46,6 @@ const ExperincePage = () => {
           <button className="button-next">შემდეგი</button>
         </Link>
       </div>
-
       <Resume />
     </section>
   );

@@ -7,7 +7,7 @@ import AddExperience from "./Add-Experience";
 import Resume from "./Resume";
 
 const ExperincePage = () => {
-  const [experienceCount, setExperienceCount] = useState(0);
+  const [experienceCount, setExperienceCount] = useState(1);
   const onClickaddExperience = () => {
     setExperienceCount(experienceCount + 1);
   };
@@ -15,6 +15,7 @@ const ExperincePage = () => {
   // const onAddBtnClick = (event) => {
   //   setInputList(inputList.concat(<AddExperience key={inputList.length} />));
   // };
+
   return (
     <section className="experinece-inofrmation">
       <form className="experinece-inofrmation-form">
@@ -30,30 +31,23 @@ const ExperincePage = () => {
         </Link>
 
         <div>
-          <AddExperience />
+          {/* <AddExperience /> */}
           {Array.from({ length: experienceCount }, (_, i) => (
             <AddExperience key={i} />
           ))}
-          <button onClick={onClickaddExperience}>
-            მეტი გამოცდილების დამატება
-          </button>
-          {console.log(experienceCount)}
-        </div>
-
-        {/* <div>
-          <button onClick={onAddBtnClick}>მეტი გამოცდილების დამატება</button>
-          {inputList}
-        </div> */}
-
-        <div className="button-container">
-          <Link to="/general-information">
-            <button className="button-previous">უკან</button>
-          </Link>
-          <Link to="/education">
-            <button className="button-next">შემდეგი</button>
-          </Link>
         </div>
       </form>
+      <button onClick={onClickaddExperience}>მეტი გამოცდილების დამატება</button>
+
+      <div className="button-container">
+        <Link to="/general-information">
+          <button className="button-previous">უკან</button>
+        </Link>
+        <Link to="/education">
+          <button className="button-next">შემდეგი</button>
+        </Link>
+      </div>
+
       <Resume />
     </section>
   );

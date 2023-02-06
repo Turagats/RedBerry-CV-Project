@@ -5,7 +5,7 @@ const AddExperience = () => {
   return (
     <div className="experinece-inofrmation-component">
       <div className="position-information">
-        <label for="position-name">თანამდებობა</label>
+        <label htmlFor="position-name">თანამდებობა</label>
         <input
           type="text"
           id="position-name"
@@ -15,7 +15,7 @@ const AddExperience = () => {
         <span className="for-hint">მინიმუმ 2 სიმბოლო</span>
       </div>
       <div className="company-information">
-        <label for="company-name">დამსაქმებელი</label>
+        <label htmlFor="company-name">დამსაქმებელი</label>
         <input
           type="text"
           id="company-name"
@@ -26,16 +26,16 @@ const AddExperience = () => {
       </div>
       <div className="start-end-date">
         <div className="start-date">
-          <label for="start-date">დაწყების რიცხვი</label>
+          <label htmlFor="start-date">დაწყების რიცხვი</label>
           <input type="date" id="start-date" />
         </div>
         <div className="end-date">
-          <label for="end-date">დამთავრების რიცხვი</label>
+          <label htmlFor="end-date">დამთავრების რიცხვი</label>
           <input type="date" id="end-date" />
         </div>
       </div>
       <div className="about-me-optional">
-        <label for="about-me-text">აღწერა</label>
+        <label htmlFor="about-me-text">აღწერა</label>
         <textarea
           name=""
           className=""

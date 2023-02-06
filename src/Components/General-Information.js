@@ -26,12 +26,12 @@ const GeneralInformation = () => {
           </Link>
           <div className="first-last-name">
             <div className="input-name">
-              <label for="first-name">სახელი</label>
+              <label htmlFor="first-name">სახელი</label>
               <input type="text" id="first-name" name="" placeholder="სახელი" />
               <span className="for-hint">მინიმუმ 2 ასო, ქართული ასოები</span>
             </div>
             <div className="input-name">
-              <label for="last-name">გვარი</label>
+              <label htmlFor="last-name">გვარი</label>
               <input type="text" id="last-name" name="" placeholder="გვარი" />
               <span className="for-hint">მინიმუმ 2 ასო, ქართული ასოები</span>
             </div>
@@ -46,7 +46,7 @@ const GeneralInformation = () => {
           </div>
 
           <div className="about-me-optional">
-            <label for="about-me-text">ჩემ შესახებ (არასავალდებულო)</label>
+            <label htmlFor="about-me-text">ჩემ შესახებ (არასავალდებულო)</label>
             <textarea
               name=""
               className=""
@@ -56,7 +56,7 @@ const GeneralInformation = () => {
             ></textarea>
           </div>
           <div className="email">
-            <label for="email-input">ელ.ფოსტა</label>
+            <label htmlFor="email-input">ელ.ფოსტა</label>
             <input
               type="email"
               id="email-input"
@@ -65,7 +65,7 @@ const GeneralInformation = () => {
             <span className="for-hint">უნდა მთავრდებოდეს @redberry.ge-ით</span>
           </div>
           <div className="mobile-number">
-            <label for="mobile-number-input">მობილურის ნომერი</label>
+            <label htmlFor="mobile-number-input">მობილურის ნომერი</label>
             <input
               type="text"
               id="mobile-number-input"

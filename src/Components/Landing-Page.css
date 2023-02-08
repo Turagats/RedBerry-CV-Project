@@ -3,57 +3,54 @@
     width: 100vw;
     height: 100vh;
     background-size: cover;
+    padding: 0 4.375rem;
 }
 
-
+.header {
+    padding: 1.5625rem 0;
+    border-bottom: 1px solid #1a1a1a;
+}
 
 .header-logo {
-    position: absolute;
-    width: 236px;
-    height: 38px;
-    left: 70px;
-    top: 25px;
+    width: 14.75rem;
 }
 
 .background-logo {
-    position: absolute;
-    width: 299px;
-    height: 299px;
-    left: 1076px;
-    top: 473px;
-
-    background: url("../UI/Assets/Images/LOGO-40\ 1.svg");
-    mix-blend-mode: multiply;
+    width: 18.6875rem;
+      height: 18.6875rem;
+      position: absolute;
+      top: -2.5rem;
+      right: -11.4375rem;
+      z-index: -1;
 }
 
-.button-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 60px;
-    gap: 20px;
+.button-and-logo {
+    position: absolute;
+    left: calc(50% - 14.5rem);
+    top: calc(50% - 1.675rem);
+
 }
 
 .add-resume_button {
-
-
-    position: absolute;
-    width: 464px;
-    height: 60px;
-    left: calc(50% - 464px/2);
-    top: 513px;
-
-    background: #1A1A1A;
-    border-radius: 8px;
-
-    font-family: 'Helvetica Neue';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-
+    font-family: inherit;
+    font-size: 1.25rem;
+    width: 29rem;
+    height: 3.75rem;
+    background-color: #1a1a1a;
     color: #FFFFFF;
-
-
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 1.125rem 7.875rem;
+  
 }
+
+.resume-block {
+    position: absolute;
+    width: 822px;
+    height: 1080px;
+    right: 0px;
+    top: 0px;
+    background: #FFFFFF;
+  }
+  

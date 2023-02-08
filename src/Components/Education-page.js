@@ -14,7 +14,7 @@ const EducationPage = () => {
     <section className="education-information">
       <form className="education-information-form">
         <div className="education-inofrmation-header">
-          <h1 className="title">განათლება</h1>
+          <span className="title">განათლება</span>
           <span className="page-number">3/3</span>
         </div>
         <Link to="/">
@@ -34,7 +34,9 @@ const EducationPage = () => {
           ))}
         </div>
       </form>
-      <button onClick={onClickaddExperience}>სხვა სასწავლებლის დამატება</button>
+      <button className="add-education-button" onClick={onClickaddExperience}>
+        სხვა სასწავლებლის დამატება
+      </button>
       <div className="button-container">
         <Link to="/experience">
           <button className="button-previous">უკან</button>

@@ -33,19 +33,8 @@ const AddEducation = () => {
       <div className="degree-and-date">
         <div className="degree">
           <label htmlFor="degree-dropdwon">ხარისხი</label>
-
-          {/* <select className="degree" id="degree-dropdwon">
-            <option disabled defaultValue value>
-              {" "}
-              აირჩიეთ ხარისხი{" "}
-            </option>
-            <option value="value1">data</option>
-            <option value="value2">data</option>
-            <option value="value3">data</option>
-          </select> */}
-
-          <select>
-            <option value="" disabled>
+          <select id="degree-dropdwon">
+            <option disabled selected>
               აირჩიეთ ხარისხი
             </option>
             {data

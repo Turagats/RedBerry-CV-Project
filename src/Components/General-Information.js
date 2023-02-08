@@ -1,21 +1,77 @@
-import React from "react";
+import React, { useState } from "react";
+import { useEffect } from "react";
 import "./General-Information.css";
 import { Link } from "react-router-dom";
 import forbackVector from "../UI/Assets/Images/Vector.svg";
 // import forbackEclipse from "../UI/Assets/Images/Ellipse 1.svg";
 import Resume from "./Resume";
 
-const GeneralInformation = () => {
+const GeneralInformation = ({ onChange }) => {
+  localStorage.getItem("name");
   const uploadFile = () => {
     document.getElementById("image-input").click();
   };
 
+  const [inputName, setInputName] = useState(
+    localStorage.getItem("name") || ""
+  );
+  const HandeChengeName = (event) => {
+    setInputName(event.target.value);
+    console.log(event);
+  };
+
+  const [inputLastName, setInputLastName] = useState(
+    localStorage.getItem("lastname") || ""
+  );
+  const HandeChengeLastName = (event) => {
+    setInputLastName(event.target.value);
+    console.log(event);
+  };
+
+  useEffect(() => {
+    localStorage.setItem("name", inputName);
+  }, [inputName]);
+
+  useEffect(() => {
+    localStorage.setItem("lastname", inputLastName);
+  }, [inputLastName]);
+
+  // const [errors, setErrors] = useState({ name: null, surname: null });
+
+  // const handleChange = (field, event) => {
+  //   const { value } = event.target;
+
+  //   if (!value) {
+  //     setErrors({ ...errors, [field]: `${field} is required` });
+  //     return;
+  //   }
+
+  //   if (value.length < 2) {
+  //     setErrors({
+  //       ...errors,
+  //       [field]: `${field} can only contain 2 characters`,
+  //     });
+  //     return;
+  //   }
+
+  //   if (/[^ა-ჰ ]/g.test(value)) {
+  //     setErrors({
+  //       ...errors,
+  //       [field]: `${field} can only contain Georgian characters`,
+  //     });
+  //     return;
+  //   }
+
+  //   setErrors({ ...errors, [field]: null });
+  //   onChange(field, value);
+  // };
+
   return (
-    <div>
-      <section className="general-information">
+    <section className="general-information">
+      <div className="informations-buttons">
         <form className="personal-information">
           <div className="personal-information-header">
-            <h1 className="title">პირადი ინფო</h1>
+            <span className="title">პირადი ინფო</span>
             <span className="page-number">1/3</span>
           </div>
           <Link to="/">
@@ -27,16 +83,32 @@ const GeneralInformation = () => {
           <div className="first-last-name">
             <div className="input-name">
               <label htmlFor="first-name">სახელი</label>
-              <input type="text" id="first-name" name="" placeholder="სახელი" />
+              <input
+                type="text"
+                id="first-name"
+                // onChange={(event) => handleChange("name", event)}
+                onChange={HandeChengeName}
+                minLength={2}
+                required
+                value={inputName}
+                placeholder="სახელი"
+              />
+              {/* {errors.name && <div style={{ color: "red" }}>{errors.name}</div>} */}
               <span className="for-hint">მინიმუმ 2 ასო, ქართული ასოები</span>
             </div>
             <div className="input-name">
               <label htmlFor="last-name">გვარი</label>
-              <input type="text" id="last-name" name="" placeholder="გვარი" />
+              <input
+                type="text"
+                id="last-name"
+                placeholder="გვარი"
+                value={inputLastName}
+                required
+                onChange={HandeChengeLastName}
+              />
               <span className="for-hint">მინიმუმ 2 ასო, ქართული ასოები</span>
             </div>
           </div>
-
           <div className="upload-photo">
             <h4 className="upload-photo-header">პირადი ფოტოს ატვირთვა</h4>
             <button className="upload-photo-button" onClick={uploadFile}>
@@ -44,7 +116,6 @@ const GeneralInformation = () => {
             </button>
             <input type="file" id="image-input" style={{ display: "none" }} />
           </div>
-
           <div className="about-me-optional">
             <label htmlFor="about-me-text">ჩემ შესახებ (არასავალდებულო)</label>
             <textarea
@@ -75,13 +146,15 @@ const GeneralInformation = () => {
               უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს
             </span>
           </div>
-          <Link to="/experience">
-            <button className="button-next">შემდეგი</button>
-          </Link>
         </form>
-      </section>
-      <Resume />
-    </div>
+        <div id="buttonsnextback">
+          <Link to="/experience">
+            <button id="buttonnext">შემდეგი</button>
+          </Link>
+        </div>
+      </div>
+      <Resume name={inputName} lastName={inputLastName} />
+    </section>
   );
 };
 

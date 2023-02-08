@@ -1,0 +1,92 @@
+.resume-block {
+    /* position: absolute; */
+    width: 822px;
+    height: 1080px;
+    right: 0px;
+    top: 0px;
+    background: #FFFFFF;
+}
+
+.resPreview {
+    width: 51.375rem;
+    min-height: 67.5rem;
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    font-weight: 400;
+}
+
+.resPersonalInfo {
+    padding-bottom: 0.375rem;
+    position: relative;
+}
+
+.resName {
+    margin-bottom: 1rem;
+}
+
+h1 {
+    margin: 0;
+    font-size: 2.125rem;
+    line-height: 2.625rem;
+}
+
+
+.resContact {
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+}
+
+.resMailAndIcon,
+.resPhoneNumberAndIcon {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 0.625rem;
+}
+
+.resMailIcon,
+.resPhoneIcon {
+    margin-right: 0.729375rem;
+}
+
+.resPersonalImg {
+    position: absolute;
+    width: 15.375rem;
+    height: 15.375rem;
+    border-radius: 50%;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    top: -1.25rem;
+    right: 0;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 3px 10px;
+}
+
+.resExperienceDates,
+.resGradYear {
+    font-weight: 400;
+    font-style: italic;
+    color: #909090;
+}
+
+.resExperience,
+.resEducation {
+    border-top: 1px solid #c8c8c8;
+    padding: 0.375rem 0;
+}
+
+.resPositionAndEmployer,
+.resInstitutionAndDegree {
+    font-weight: 500;
+}
+
+.resStarIcon {
+    width: 2.625rem;
+    margin-top: auto;
+  }
+
+  .resume-name-lastname {
+    min-height: 48px;
+  }

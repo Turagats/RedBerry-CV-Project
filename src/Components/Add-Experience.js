@@ -3,7 +3,7 @@ import "./Add-Experience.css";
 import Resume from "./Resume";
 
 const AddExperience = (props) => {
-  console.log(props.experinceQuantity)
+  console.log(props.experinceQuantity);
 
   const inputName = localStorage.getItem("name") || "";
   const inputLastName = localStorage.getItem("lastname") || "";
@@ -19,7 +19,7 @@ const AddExperience = (props) => {
   );
   const HandeChengePosition = (event) => {
     setInputPosition(event.target.value);
-    console.log()
+    console.log();
   };
   useEffect(() => {
     localStorage.setItem("position", inputPosition);
@@ -36,6 +36,39 @@ const AddExperience = (props) => {
     localStorage.setItem("employer", inputEmployer);
   }, [inputEmployer]);
 
+  //start date
+  const [inputStartingDate, setInputStartingDate] = useState(
+    localStorage.getItem("starting-date") || ""
+  );
+  const HandleChangeStartingDate = (event) => {
+    setInputStartingDate(event.target.value);
+  };
+  useEffect(() => {
+    localStorage.setItem("starting-date", inputStartingDate);
+  }, [inputStartingDate]);
+
+  //end date
+  const [inputEndingDate, setInputEndingDate] = useState(
+    localStorage.getItem("ending-date") || ""
+  );
+  const HandleChangeEndingDate = (event) => {
+    setInputEndingDate(event.target.value);
+  };
+  useEffect(() => {
+    localStorage.setItem("ending-date", inputEndingDate);
+  }, [inputEndingDate]);
+
+  //about job
+  const [inputAboutJob, setInputAboutJob] = useState(
+    localStorage.getItem("about-job") || ""
+  );
+  const HandleChangeAboutJob = (event) => {
+    setInputAboutJob(event.target.value);
+  };
+  useEffect(() => {
+    localStorage.setItem("about-job", inputAboutJob);
+  }, [inputAboutJob]);
+
   return (
     <div className="experinece-inofrmation-component">
       <div className="position-information">
@@ -49,6 +82,9 @@ const AddExperience = (props) => {
           position={inputPosition}
           employer={inputEmployer}
           experinceQuantity={props.experinceQuantity}
+          startingDate={inputStartingDate}
+          endingDate={inputEndingDate}
+          aboutJob={inputAboutJob}
         />
         <input
           type="text"
@@ -69,17 +105,30 @@ const AddExperience = (props) => {
           placeholder="დამსაქმებელი"
           value={inputEmployer}
           onChange={HandeChengeEmployer}
+          required
         />
         <span className="for-hint">მინიმუმ 2 სიმბოლო</span>
       </div>
       <div className="start-end-date">
         <div className="start-date">
           <label htmlFor="start-date">დაწყების რიცხვი</label>
-          <input type="date" id="start-date" />
+          <input
+            type="date"
+            id="start-date"
+            value={inputStartingDate}
+            required
+            onChange={HandleChangeStartingDate}
+          />
         </div>
         <div className="end-date">
           <label htmlFor="end-date">დამთავრების რიცხვი</label>
-          <input type="date" id="end-date" />
+          <input
+            type="date"
+            id="end-date"
+            onChange={HandleChangeEndingDate}
+            required
+            value={inputEndingDate}
+          />
         </div>
       </div>
       <div className="about-me-optional">
@@ -91,6 +140,9 @@ const AddExperience = (props) => {
           cols="60"
           rows="5"
           placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"
+          required
+          value={inputAboutJob}
+          onChange={HandleChangeAboutJob}
         ></textarea>
       </div>
     </div>

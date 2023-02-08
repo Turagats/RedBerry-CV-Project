@@ -42,23 +42,18 @@ const Resume = (props) => {
           <h3 className="resExperienceHeading">გამოცდილება</h3>
           <div className="resPositionAndDates">
             <div className="resume-position-employer">
-              <span  className="resPosition">{props.position}</span>,
-              <span className="resEmployer">{props.employer}</span>
+              <span  className="resPosition">{props.position}</span>, 
+              <span className="resEmployer"> {props.employer}</span>
             </div>
             <div className="resume-dates">
-              <span className="resStartDate">2020-09-23</span> -
-              <span className="resEndDate">2020-09-23</span>
+              <span className="resStartDate">{props.startingDate}</span> -
+              <span className="resEndDate">{props.endingDate}</span>
             </div>
           </div>
 
 
 
-          <p className="resAboutExperience">
-            Experienced Javascript Native Developer with 5 years in the
-            industry. proficient withreact. Used problem-solving aptitude to
-            encahge application performance by 14%. created data visualisation
-            tools and integrated designs.
-          </p>
+          <p className="resAboutExperience">{props.aboutJob}</p>
         </div>
         <div className="resume-education">
           <h3 className="resEducationHeading">განათლება</h3>

@@ -9,6 +9,9 @@ import Resume from "./Resume";
 const GeneralInformation = () => {
   const inputPosition = localStorage.getItem("position" || "");
   const inputEmployer = localStorage.getItem("employer" || "");
+  const inputStartingDate = localStorage.getItem("starting-date" || "");
+  const inputEndingDate = localStorage.getItem("ending-date" || "");
+  const inputAboutJob = localStorage.getItem("about-job" || "");
 
   const uploadFile = () => {
     document.getElementById("image-input").click();
@@ -209,6 +212,9 @@ const GeneralInformation = () => {
         mobile={inputMobile}
         position={inputPosition}
         employer={inputEmployer}
+        startingDate={inputStartingDate}
+        endingDate={inputEndingDate}
+        aboutJob={inputAboutJob}
       />
     </section>
   );

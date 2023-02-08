@@ -4,17 +4,21 @@ import forbackVector from "../UI/Assets/Images/Vector.svg";
 // import forbackEclipse from "../UI/Assets/Images/Ellipse 1.svg";
 import { Link } from "react-router-dom";
 import AddExperience from "./Add-Experience";
-import Resume from "./Resume";
+// import Resume from "./Resume";
 
-const ExperincePage = () => {
+const ExperincePage = (props) => {
+  // const inputName = localStorage.getItem("name") || "";
+  // const inputLastName = localStorage.getItem("lastname") || "";
+  // const inputaboutMe = localStorage.getItem("aboutme") || "";
+  // const inputEmail = localStorage.getItem("email") || "";
+  // const inputMobile = localStorage.getItem("mobile") || "";
+  // const inputPosition = localStorage.getItem("position" || "");
+  // const inputEmployer = localStorage.getItem("employer" || "");
+
   const [experienceCount, setExperienceCount] = useState(1);
   const onClickaddExperience = () => {
     setExperienceCount(experienceCount + 1);
   };
-  // const [inputList, setInputList] = useState([]);
-  // const onAddBtnClick = (event) => {
-  //   setInputList(inputList.concat(<AddExperience key={inputList.length} />));
-  // };
 
   return (
     <section className="experinece-inofrmation">
@@ -25,19 +29,17 @@ const ExperincePage = () => {
         </div>
         <Link to="/">
           <div className="back-to-landging-page">
-            {/* <img src={forbackEclipse} className="eclipse" alt="back" /> */}
             <img src={forbackVector} className="vector" alt="back" />
           </div>
         </Link>
 
         <div>
-          {/* <AddExperience /> */}
           {Array.from({ length: experienceCount }, (_, i) => (
-            <AddExperience key={i} />
+            <AddExperience experinceQuantity={i} key={i} />
           ))}
         </div>
       </form>
-      <button class="add-experience-button" onClick={onClickaddExperience}>
+      <button className="add-experience-button" onClick={onClickaddExperience}>
         მეტი გამოცდილების დამატება
       </button>
       <div className="button-container">
@@ -48,7 +50,6 @@ const ExperincePage = () => {
           <button className="button-next">შემდეგი</button>
         </Link>
       </div>
-      <Resume />
     </section>
   );
 };

@@ -1,16 +1,63 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Add-Experience.css";
+import Resume from "./Resume";
 
-const AddExperience = () => {
+const AddExperience = (props) => {
+  console.log(props.experinceQuantity)
+
+  const inputName = localStorage.getItem("name") || "";
+  const inputLastName = localStorage.getItem("lastname") || "";
+  const inputaboutMe = localStorage.getItem("aboutme") || "";
+  const inputEmail = localStorage.getItem("email") || "";
+  const inputMobile = localStorage.getItem("mobile") || "";
+  // const inputPosition = localStorage.getItem("position" || "");
+  // const inputEmployer = localStorage.getItem("employer" || "");
+
+  //position
+  const [inputPosition, setInputPosition] = useState(
+    localStorage.getItem("position") || ""
+  );
+  const HandeChengePosition = (event) => {
+    setInputPosition(event.target.value);
+    console.log()
+  };
+  useEffect(() => {
+    localStorage.setItem("position", inputPosition);
+  }, [inputPosition]);
+
+  //employer
+  const [inputEmployer, setInputEmployer] = useState(
+    localStorage.getItem("employer") || ""
+  );
+  const HandeChengeEmployer = (event) => {
+    setInputEmployer(event.target.value);
+  };
+  useEffect(() => {
+    localStorage.setItem("employer", inputEmployer);
+  }, [inputEmployer]);
+
   return (
     <div className="experinece-inofrmation-component">
       <div className="position-information">
         <label htmlFor="position-name">თანამდებობა</label>
+        <Resume
+          name={inputName}
+          lastName={inputLastName}
+          aboutMe={inputaboutMe}
+          email={inputEmail}
+          mobile={inputMobile}
+          position={inputPosition}
+          employer={inputEmployer}
+          experinceQuantity={props.experinceQuantity}
+        />
         <input
           type="text"
           id="position-name"
           name=""
           placeholder="დეველოპერი, დიზაინერი, ა.შ."
+          onChange={HandeChengePosition}
+          value={inputPosition}
+          required
         />
         <span className="for-hint">მინიმუმ 2 სიმბოლო</span>
       </div>
@@ -19,8 +66,9 @@ const AddExperience = () => {
         <input
           type="text"
           id="company-name"
-          name=""
           placeholder="დამსაქმებელი"
+          value={inputEmployer}
+          onChange={HandeChengeEmployer}
         />
         <span className="for-hint">მინიმუმ 2 სიმბოლო</span>
       </div>

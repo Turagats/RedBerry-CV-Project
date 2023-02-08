@@ -1,0 +1,5 @@
+.start-end-date {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2.0625rem;
+}

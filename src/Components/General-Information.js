@@ -6,12 +6,15 @@ import forbackVector from "../UI/Assets/Images/Vector.svg";
 // import forbackEclipse from "../UI/Assets/Images/Ellipse 1.svg";
 import Resume from "./Resume";
 
-const GeneralInformation = ({ onChange }) => {
-  localStorage.getItem("name");
+const GeneralInformation = () => {
+  const inputPosition = localStorage.getItem("position" || "");
+  const inputEmployer = localStorage.getItem("employer" || "");
+
   const uploadFile = () => {
     document.getElementById("image-input").click();
   };
 
+  // Name
   const [inputName, setInputName] = useState(
     localStorage.getItem("name") || ""
   );
@@ -19,6 +22,11 @@ const GeneralInformation = ({ onChange }) => {
     setInputName(event.target.value);
     console.log(event);
   };
+  useEffect(() => {
+    localStorage.setItem("name", inputName);
+  }, [inputName]);
+
+  // Last name
 
   const [inputLastName, setInputLastName] = useState(
     localStorage.getItem("lastname") || ""
@@ -27,14 +35,46 @@ const GeneralInformation = ({ onChange }) => {
     setInputLastName(event.target.value);
     console.log(event);
   };
-
-  useEffect(() => {
-    localStorage.setItem("name", inputName);
-  }, [inputName]);
-
   useEffect(() => {
     localStorage.setItem("lastname", inputLastName);
   }, [inputLastName]);
+
+  //about me
+  const [inputaboutMe, setInputAboutMe] = useState(
+    localStorage.getItem("aboutme") || ""
+  );
+
+  const HandeChangeAboutme = (event) => {
+    setInputAboutMe(event.target.value);
+  };
+  useEffect(() => {
+    localStorage.setItem("aboutme", inputaboutMe);
+  }, [inputaboutMe]);
+
+  //email
+
+  const [inputEmail, setInputEmail] = useState(
+    localStorage.getItem("email") || ""
+  );
+
+  const HandeChangeEmail = (event) => {
+    setInputEmail(event.target.value);
+  };
+  useEffect(() => {
+    localStorage.setItem("email", inputEmail);
+  }, [inputEmail]);
+
+  // mobile
+  const [inputMobile, setInputMobile] = useState(
+    localStorage.getItem("mobile") || ""
+  );
+
+  const HandeChangeMobile = (event) => {
+    setInputMobile(event.target.value);
+  };
+  useEffect(() => {
+    localStorage.setItem("mobile", inputMobile);
+  }, [inputMobile]);
 
   // const [errors, setErrors] = useState({ name: null, surname: null });
 
@@ -124,6 +164,8 @@ const GeneralInformation = ({ onChange }) => {
               id="about-me-text"
               cols="60"
               rows="5"
+              onChange={HandeChangeAboutme}
+              value={inputaboutMe}
             ></textarea>
           </div>
           <div className="email">
@@ -132,6 +174,9 @@ const GeneralInformation = ({ onChange }) => {
               type="email"
               id="email-input"
               placeholder="taso@redberry.ge"
+              value={inputEmail}
+              required
+              onChange={HandeChangeEmail}
             />
             <span className="for-hint">უნდა მთავრდებოდეს @redberry.ge-ით</span>
           </div>
@@ -141,6 +186,9 @@ const GeneralInformation = ({ onChange }) => {
               type="text"
               id="mobile-number-input"
               placeholder="+995 551 12 34 56"
+              value={inputMobile}
+              required
+              onChange={HandeChangeMobile}
             />
             <span className="for-hint">
               უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს
@@ -153,7 +201,15 @@ const GeneralInformation = ({ onChange }) => {
           </Link>
         </div>
       </div>
-      <Resume name={inputName} lastName={inputLastName} />
+      <Resume
+        name={inputName}
+        lastName={inputLastName}
+        aboutMe={inputaboutMe}
+        email={inputEmail}
+        mobile={inputMobile}
+        position={inputPosition}
+        employer={inputEmployer}
+      />
     </section>
   );
 };

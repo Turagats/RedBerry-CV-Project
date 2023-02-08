@@ -3,7 +3,6 @@ import "./Education-page.css";
 import { Link } from "react-router-dom";
 import forbackVector from "../UI/Assets/Images/Vector.svg";
 import AddEducation from "./Add-Education";
-import Resume from "./Resume";
 
 const EducationPage = () => {
   const [educationCount, setEducationCount] = useState(1);
@@ -45,7 +44,6 @@ const EducationPage = () => {
           <button className="button-finish">დასრულება</button>
         </Link>
       </div>
-      <Resume />
     </section>
   );
 };

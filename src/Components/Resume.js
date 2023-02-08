@@ -36,44 +36,35 @@ const Resume = (props) => {
           </div>
           <div className="resume-profile-img"></div>
         </div>
-       
 
-<div className="resresume-experience">
+        <div className="resresume-experience">
           <h3 className="resExperienceHeading">გამოცდილება</h3>
           <div className="resPositionAndDates">
             <div className="resume-position-employer">
-              <span  className="resPosition">{props.position}</span>, 
+              <span className="resPosition">{props.position}</span>,
               <span className="resEmployer"> {props.employer}</span>
             </div>
             <div className="resume-dates">
-              <span className="resStartDate">{props.startingDate}</span> -
-              <span className="resEndDate">{props.endingDate}</span>
+              <span className="resume-statring-date">{props.startingDate}</span>{" "}
+              -<span className="resume-ending-date">{props.endingDate}</span>
             </div>
           </div>
-
-
-
-          <p className="resAboutExperience">{props.aboutJob}</p>
+          <p className="resume-about-experience">{props.aboutJob}</p>
         </div>
         <div className="resume-education">
-          <h3 className="resEducationHeading">განათლება</h3>
-          <div className="resInstitutionAndDates">
-            <div className="resInstitutionAndDates">
-              <span className="resinstitution">
-                წმ. ანდრიას საპატრიარქოს სასწავლებელი
-              </span>
-              ,<span className="resDegree">სტუდენტი</span>
+          <h3 className="resume-education-header">განათლება</h3>
+          <div className="resume-institute-dates">
+            <div className="resume-institute-dates">
+              <span className="resume-institute">{props.educational}</span>,
+              <span className="resume-degree"> {props.degree}</span>
             </div>
             <div className="resume-graduation-year">
-              <span className="resStartDate">2020-09-09</span>
+              <span className="resume-education-ending-date">
+                {props.educationalEnding}
+              </span>
             </div>
           </div>
-          <p className="resAboutEducation">
-            ვსწავლობდი გულმოდგინეთ. მყავდა ფრიადები. რაც შემეძლო — ვქენი.
-            კომპიუტერები მიყვარდა. ვიჯექი ჩემთვის, ვაკაკუნებდი ამ კლავიშებზე.
-            მეუნებოდნენ — დაჯექი, წაიკითხე რამე, რას აკაკუნებ, დრო მოვა და
-            ჩაგიკაკუნებსო. აჰა, მოვიდა დრო და ვერა ვარ დეველოპერი?
-          </p>
+          <p className="resume-about-education">{props.aboutEducation}</p>
         </div>
         <img
           className="resume-star"

@@ -12,6 +12,13 @@ const GeneralInformation = () => {
   const inputStartingDate = localStorage.getItem("starting-date" || "");
   const inputEndingDate = localStorage.getItem("ending-date" || "");
   const inputAboutJob = localStorage.getItem("about-job" || "");
+  const inputEducational = localStorage.getItem("educational" || "");
+  const inputDegree = localStorage.getItem("degree" || "");
+  const inputEducationEndingDate = localStorage.getItem(
+    "education-ending-date" || ""
+  );
+  const inputAboutEducation = localStorage.getItem("about-education" || "");
+  
 
   const uploadFile = () => {
     document.getElementById("image-input").click();
@@ -215,6 +222,10 @@ const GeneralInformation = () => {
         startingDate={inputStartingDate}
         endingDate={inputEndingDate}
         aboutJob={inputAboutJob}
+        educational={inputEducational}
+        degree={inputDegree}
+        educationalEnding={inputEducationEndingDate}
+        aboutEducation={inputAboutEducation}
       />
     </section>
   );

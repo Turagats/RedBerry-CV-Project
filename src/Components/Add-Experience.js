@@ -5,11 +5,18 @@ import Resume from "./Resume";
 const AddExperience = (props) => {
   console.log(props.experinceQuantity);
 
-  const inputName = localStorage.getItem("name") || "";
-  const inputLastName = localStorage.getItem("lastname") || "";
-  const inputaboutMe = localStorage.getItem("aboutme") || "";
-  const inputEmail = localStorage.getItem("email") || "";
-  const inputMobile = localStorage.getItem("mobile") || "";
+  const inputName = localStorage.getItem("name" || "");
+  const inputLastName = localStorage.getItem("lastname" || "");
+  const inputaboutMe = localStorage.getItem("aboutme" || "");
+  const inputEmail = localStorage.getItem("email" || "");
+  const inputMobile = localStorage.getItem("mobile" || "");
+  const inputEducational = localStorage.getItem("educational" || "");
+  const inputDegree = localStorage.getItem("degree" || "");
+  const inputEducationEndingDate = localStorage.getItem(
+    "education-ending-date" || ""
+  );
+  const inputAboutEducation = localStorage.getItem("about-education" || "");
+
   // const inputPosition = localStorage.getItem("position" || "");
   // const inputEmployer = localStorage.getItem("employer" || "");
 
@@ -71,21 +78,26 @@ const AddExperience = (props) => {
 
   return (
     <div className="experinece-inofrmation-component">
+      <Resume
+        name={inputName}
+        lastName={inputLastName}
+        aboutMe={inputaboutMe}
+        email={inputEmail}
+        mobile={inputMobile}
+        position={inputPosition}
+        employer={inputEmployer}
+        experinceQuantity={props.experinceQuantity}
+        startingDate={inputStartingDate}
+        endingDate={inputEndingDate}
+        aboutJob={inputAboutJob}
+        educational={inputEducational}
+        degree={inputDegree}
+        educationalEnding={inputEducationEndingDate}
+        aboutEducation={inputAboutEducation}
+      />
       <div className="position-information">
         <label htmlFor="position-name">თანამდებობა</label>
-        <Resume
-          name={inputName}
-          lastName={inputLastName}
-          aboutMe={inputaboutMe}
-          email={inputEmail}
-          mobile={inputMobile}
-          position={inputPosition}
-          employer={inputEmployer}
-          experinceQuantity={props.experinceQuantity}
-          startingDate={inputStartingDate}
-          endingDate={inputEndingDate}
-          aboutJob={inputAboutJob}
-        />
+
         <input
           type="text"
           id="position-name"

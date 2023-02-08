@@ -1,42 +1,40 @@
-import React, { useState } from 'react';
+import React from "react";
+import Resume from "./Resume";
 
-const Sacdeli = ({ label, name, required, onChange }) => {
-  const [error, setError] = useState(null);
-
-  const handleChange = (event) => {
-    const { value } = event.target;
-
-    if (required && !value) {
-      setError(`${label} is required`);
-      return;
-    }
-
-    if (value.length < 2) {
-      setError(`${label} can only contain 2 characters`);
-      return;
-    }
-
-    if (/[^ა-ჰ ]/g.test(value)) {
-      setError(`${label} can only contain Georgian characters`);
-      return;
-    }
-
-    setError(null);
-    onChange(name, value);
-  };
-
+const Sacdeli = () => {
+  const inputPosition = localStorage.getItem("position" || "");
+  const inputEmployer = localStorage.getItem("employer" || "");
+  const inputStartingDate = localStorage.getItem("starting-date" || "");
+  const inputEndingDate = localStorage.getItem("ending-date" || "");
+  const inputAboutJob = localStorage.getItem("about-job" || "");
+  const inputEducational = localStorage.getItem("educational" || "");
+  const inputDegree = localStorage.getItem("degree" || "");
+  const inputEducationEndingDate = localStorage.getItem(
+    "education-ending-date" || ""
+  );
+  const inputAboutEducation = localStorage.getItem("about-education" || "");
+  const inputName = localStorage.getItem("name") || "";
+  const inputLastName = localStorage.getItem("lastname") || "";
+  const inputaboutMe = localStorage.getItem("aboutme") || "";
+  const inputEmail = localStorage.getItem("email") || "";
+  const inputMobile = localStorage.getItem("mobile") || "";
   return (
-    <div>
-      <label htmlFor={name}>{label}</label>
-      <input
-        id={name}
-        type="text"
-        onChange={handleChange}
-        minLength={2}
-        required={required}
-      />
-      {error && <div style={{ color: 'red' }}>{error}</div>}
-    </div>
+    <Resume
+      name={inputName}
+      lastName={inputLastName}
+      aboutMe={inputaboutMe}
+      email={inputEmail}
+      mobile={inputMobile}
+      position={inputPosition}
+      employer={inputEmployer}
+      startingDate={inputStartingDate}
+      endingDate={inputEndingDate}
+      aboutJob={inputAboutJob}
+      educational={inputEducational}
+      degree={inputDegree}
+      educationalEnding={inputEducationEndingDate}
+      aboutEducation={inputAboutEducation}
+    />
   );
 };
 

@@ -18,11 +18,23 @@ const GeneralInformation = () => {
     "education-ending-date" || ""
   );
   const inputAboutEducation = localStorage.getItem("about-education" || "");
-  
+
+  // for button upload
 
   const uploadFile = () => {
     document.getElementById("image-input").click();
   };
+  const [photo, setPhoto] = useState(
+    localStorage.getItem("profile-photo") || null
+  );
+
+  const handleChange = (e) => {
+    setPhoto(URL.createObjectURL(e.target.files[0]));
+  };
+
+  useEffect(() => {
+    localStorage.setItem("profile-photo", photo);
+  }, [photo]);
 
   // Name
   const [inputName, setInputName] = useState(
@@ -161,11 +173,21 @@ const GeneralInformation = () => {
           </div>
           <div className="upload-photo">
             <h4 className="upload-photo-header">პირადი ფოტოს ატვირთვა</h4>
-            <button className="upload-photo-button" onClick={uploadFile}>
+
+            <div className="upload-photo-button" onClick={uploadFile}>
               ატვირთვა
-            </button>
-            <input type="file" id="image-input" style={{ display: "none" }} />
+              <input
+                type="file"
+                id="image-input"
+                style={{ display: "none" }}
+                onChange={handleChange}
+              />
+            </div>
+            {/* <button className="upload-photo-button" onClick={uploadFile}>
+              ატვირთვა
+            </button> */}
           </div>
+
           <div className="about-me-optional">
             <label htmlFor="about-me-text">ჩემ შესახებ (არასავალდებულო)</label>
             <textarea
@@ -226,6 +248,7 @@ const GeneralInformation = () => {
         degree={inputDegree}
         educationalEnding={inputEducationEndingDate}
         aboutEducation={inputAboutEducation}
+        src={photo}
       />
     </section>
   );

@@ -17,7 +17,7 @@ const AddEducation = (props) => {
   const inputStartingDate = localStorage.getItem("starting-date" || "");
   const inputEndingDate = localStorage.getItem("ending-date" || "");
   const inputAboutJob = localStorage.getItem("about-job" || "");
-
+  const photo = localStorage.getItem("profile-photo" || null);
   useEffect(() => {
     fetch("https://resume.redberryinternship.ge/api/degrees")
       .then((response) => response.json())
@@ -144,6 +144,7 @@ const AddEducation = (props) => {
         degree={inputDegree}
         educationalEnding={inputEducationEndingDate}
         aboutEducation={inputAboutEducation}
+        src={photo}
       />
     </div>
   );

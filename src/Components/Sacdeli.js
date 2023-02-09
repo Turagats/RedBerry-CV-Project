@@ -14,10 +14,11 @@ const Sacdeli = () => {
   );
   const inputAboutEducation = localStorage.getItem("about-education" || "");
   const inputName = localStorage.getItem("name") || "";
-  const inputLastName = localStorage.getItem("lastname") || "";
-  const inputaboutMe = localStorage.getItem("aboutme") || "";
-  const inputEmail = localStorage.getItem("email") || "";
-  const inputMobile = localStorage.getItem("mobile") || "";
+  const inputLastName = localStorage.getItem("lastname" || "");
+  const inputaboutMe = localStorage.getItem("aboutme" || "");
+  const inputEmail = localStorage.getItem("email" || "");
+  const inputMobile = localStorage.getItem("mobile" || "");
+  const photo = localStorage.getItem("profile-photo" || null);
   return (
     <Resume
       name={inputName}
@@ -34,6 +35,7 @@ const Sacdeli = () => {
       degree={inputDegree}
       educationalEnding={inputEducationEndingDate}
       aboutEducation={inputAboutEducation}
+      src={photo}
     />
   );
 };

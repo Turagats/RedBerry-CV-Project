@@ -34,15 +34,26 @@ const Resume = (props) => {
             <h3 className="resume-about-me-header">ჩემ შესახებ</h3>
             <p className="resume-about-me-text">{props.aboutMe}</p>
           </div>
-          <div className="resume-profile-img"></div>
+          <div style={{
+      width: "246px",
+      height: "246px",
+      borderRadius: "50%",
+      overflow: "hidden",
+      display: "inline-block"
+    }}className="resume-profile-img">
+            <img src={props.src} alt="" style={{
+        width: "100%",
+        height: "100%"
+      }} ></img>
+          </div>
         </div>
 
-        <div className="resresume-experience">
-          <h3 className="resExperienceHeading">გამოცდილება</h3>
-          <div className="resPositionAndDates">
+        <div className="resume-experience">
+          <h3 className="resume-Experience-Heading">გამოცდილება</h3>
+          <div className="resume-Position-Dates">
             <div className="resume-position-employer">
-              <span className="resPosition">{props.position}</span>,
-              <span className="resEmployer"> {props.employer}</span>
+              <span className="resume-Position">{props.position}</span>,
+              <span className="resume-Employer"> {props.employer}</span>
             </div>
             <div className="resume-dates">
               <span className="resume-statring-date">{props.startingDate}</span>{" "}

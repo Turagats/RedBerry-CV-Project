@@ -16,6 +16,7 @@ const AddExperience = (props) => {
     "education-ending-date" || ""
   );
   const inputAboutEducation = localStorage.getItem("about-education" || "");
+  const photo = localStorage.getItem("profile-photo" || null);
 
   // const inputPosition = localStorage.getItem("position" || "");
   // const inputEmployer = localStorage.getItem("employer" || "");
@@ -94,6 +95,7 @@ const AddExperience = (props) => {
         degree={inputDegree}
         educationalEnding={inputEducationEndingDate}
         aboutEducation={inputAboutEducation}
+        src={photo}
       />
       <div className="position-information">
         <label htmlFor="position-name">თანამდებობა</label>

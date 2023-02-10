@@ -7,6 +7,7 @@ import EducationPage from "./Components/Education-page";
 import Resume from "./Components/Resume";
 import Sacdeli from "./Components/sacdeli";
 
+
 const router = createBrowserRouter([
   { path: "/", element: <LandingPage /> },
   { path: "/general-information", element: <GeneralInformation /> },

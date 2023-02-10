@@ -22,33 +22,38 @@ const ExperincePage = (props) => {
 
   return (
     <section className="experinece-inofrmation">
-      <form className="experinece-inofrmation-form">
-        <div className="experinece-inofrmation-header">
-          <span className="title">გამოცდილება</span>
-          <span className="page-number">2/3</span>
-        </div>
-        <Link to="/">
-          <div className="back-to-landging-page">
-            <img src={forbackVector} className="vector" alt="back" />
+      <div className="left-container">
+        <form className="experinece-inofrmation-form">
+          <div className="experinece-inofrmation-header">
+            <span className="title">გამოცდილება</span>
+            <span className="page-number">2/3</span>
           </div>
-        </Link>
+          <Link to="/">
+            <div className="back-to-landging-page">
+              <img src={forbackVector} className="vector" alt="back" />
+            </div>
+          </Link>
 
-        <div>
-          {Array.from({ length: experienceCount }, (_, i) => (
-            <AddExperience experinceQuantity={i} key={i} />
-          ))}
+          <div>
+            {Array.from({ length: experienceCount }, (_, i) => (
+              <AddExperience experinceQuantity={i} key={i} />
+            ))}
+          </div>
+        </form>
+        <button
+          className="add-experience-button"
+          onClick={onClickaddExperience}
+        >
+          მეტი გამოცდილების დამატება
+        </button>
+        <div className="button-container">
+          <Link to="/general-information">
+            <button className="button-previous">უკან</button>
+          </Link>
+          <Link to="/education">
+            <button className="button-next">შემდეგი</button>
+          </Link>
         </div>
-      </form>
-      <button className="add-experience-button" onClick={onClickaddExperience}>
-        მეტი გამოცდილების დამატება
-      </button>
-      <div className="button-container">
-        <Link to="/general-information">
-          <button className="button-previous">უკან</button>
-        </Link>
-        <Link to="/education">
-          <button className="button-next">შემდეგი</button>
-        </Link>
       </div>
     </section>
   );

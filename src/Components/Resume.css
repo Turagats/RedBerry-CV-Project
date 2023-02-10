@@ -1,5 +1,5 @@
 .resume-block {
-    /* position: absolute; */
+    
     width: 822px;
     height: 1080px;
     right: 0px;
@@ -70,6 +70,8 @@ h1 {
 }
 
 .resume-star {
+    position: absolute;
     width: 2.625rem;
-    margin-top: auto;
+    margin-top: 55rem;
+    margin-left: 2rem;
 }

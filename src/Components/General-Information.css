@@ -80,8 +80,8 @@
     padding: 0.3125rem 1.1875rem;
     border-radius: 4px;
     font-weight: 400;
-
     border: 0;
+    margin-lefT: 1rem;
 }
 
 .upload-photo-header {
@@ -132,7 +132,8 @@ input {
     margin-bottom: 10rem;
 }
 
-#buttonnext {
+#button-next {
+
 
     width: 9.4375rem;
     height: 3rem;
@@ -142,12 +143,33 @@ input {
     background-color: #6B40E3;
     border: none;
     border-radius: 4px;
-    padding: 0.875rem 2.1875rem;
-    align-self: flex-end;
+}
+
+
+
+
+.input-checks-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+
+.green-check,
+.red-triangle {
+    position: absolute;
+}
+
+.green-check {
+    right: 0.5rem;
+    width: 1.3125rem;
 
 }
 
-#buttonsnextback {
-    display: flex;
+.red-triangle {
+    right: -1.8rem;
+    ;
+    width: 1.3125rem;
 
 }

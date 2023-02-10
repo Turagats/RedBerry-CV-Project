@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Add-Education.css";
 import Resume from "./Resume";
+import redTriangle from "../UI/Assets/Images/red-triangle.png";
+import greenCheck from "../UI/Assets/Images/green-bird.png";
 
 const AddEducation = (props) => {
   const [data, setData] = useState(null);
@@ -75,15 +77,19 @@ const AddEducation = (props) => {
     <div className="education-information-component">
       <div className="education-information">
         <label htmlFor="education-name">სასწავლებელი</label>
-        <input
-          type="text"
-          id="education-name"
-          name=""
-          placeholder="სასწავლებელი"
-          onChange={HandleChangeEducational}
-          value={inputEducational}
-          required
-        />
+        <div className="input-checks-wrapper">
+          <input
+            type="text"
+            id="education-name"
+            name=""
+            placeholder="სასწავლებელი"
+            onChange={HandleChangeEducational}
+            value={inputEducational}
+            required
+          />
+          <img className="green-check" src={greenCheck} alt="" />
+          <img className="red-triangle" src={redTriangle} alt="" />
+        </div>
         <span className="for-hint">მინიმუმ 2 სიმბოლო</span>
       </div>
       <div className="degree-and-date">

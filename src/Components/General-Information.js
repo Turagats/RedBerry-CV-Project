@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import forbackVector from "../UI/Assets/Images/Vector.svg";
 // import forbackEclipse from "../UI/Assets/Images/Ellipse 1.svg";
 import Resume from "./Resume";
+import redTriangle from "../UI/Assets/Images/red-triangle.png";
+import greenCheck from "../UI/Assets/Images/green-bird.png";
 
 const GeneralInformation = () => {
   const inputPosition = localStorage.getItem("position" || "");
@@ -145,29 +147,38 @@ const GeneralInformation = () => {
           <div className="first-last-name">
             <div className="input-name">
               <label htmlFor="first-name">სახელი</label>
-              <input
-                type="text"
-                id="first-name"
-                // onChange={(event) => handleChange("name", event)}
-                onChange={HandeChengeName}
-                minLength={2}
-                required
-                value={inputName}
-                placeholder="სახელი"
-              />
-              {/* {errors.name && <div style={{ color: "red" }}>{errors.name}</div>} */}
+              <div className="input-checks-wrapper">
+                <input
+                  type="text"
+                  id="first-name"
+                  // onChange={(event) => handleChange("name", event)}
+                  onChange={HandeChengeName}
+                  minLength={2}
+                  required
+                  value={inputName}
+                  placeholder="სახელი"
+                />
+                <img className="green-check" src={greenCheck} alt="" />
+                <img className="red-triangle" src={redTriangle} alt="" />
+
+                {/* {errors.name && <div style={{ color: "red" }}>{errors.name}</div>} */}
+              </div>
               <span className="for-hint">მინიმუმ 2 ასო, ქართული ასოები</span>
             </div>
             <div className="input-name">
               <label htmlFor="last-name">გვარი</label>
-              <input
-                type="text"
-                id="last-name"
-                placeholder="გვარი"
-                value={inputLastName}
-                required
-                onChange={HandeChengeLastName}
-              />
+              <div className="input-checks-wrapper">
+                <input
+                  type="text"
+                  id="last-name"
+                  placeholder="გვარი"
+                  value={inputLastName}
+                  required
+                  onChange={HandeChengeLastName}
+                />
+                <img className="green-check" src={greenCheck} alt="" />
+                <img className="red-triangle" src={redTriangle} alt="" />
+              </div>
               <span className="for-hint">მინიმუმ 2 ასო, ქართული ასოები</span>
             </div>
           </div>
@@ -202,36 +213,44 @@ const GeneralInformation = () => {
           </div>
           <div className="email">
             <label htmlFor="email-input">ელ.ფოსტა</label>
-            <input
-              type="email"
-              id="email-input"
-              placeholder="taso@redberry.ge"
-              value={inputEmail}
-              required
-              onChange={HandeChangeEmail}
-            />
+            <div className="input-checks-wrapper">
+              <input
+                type="email"
+                id="email-input"
+                placeholder="taso@redberry.ge"
+                value={inputEmail}
+                required
+                onChange={HandeChangeEmail}
+              />
+              <img className="green-check" src={greenCheck} alt="" />
+              <img className="red-triangle" src={redTriangle} alt="" />
+            </div>
             <span className="for-hint">უნდა მთავრდებოდეს @redberry.ge-ით</span>
           </div>
           <div className="mobile-number">
             <label htmlFor="mobile-number-input">მობილურის ნომერი</label>
-            <input
-              type="text"
-              id="mobile-number-input"
-              placeholder="+995 551 12 34 56"
-              value={inputMobile}
-              required
-              onChange={HandeChangeMobile}
-            />
+            <div className="input-checks-wrapper">
+              <input
+                type="text"
+                id="mobile-number-input"
+                placeholder="+995 551 12 34 56"
+                value={inputMobile}
+                required
+                onChange={HandeChangeMobile}
+              />
+              <img className="green-check" src={greenCheck} alt="" />
+              <img className="red-triangle" src={redTriangle} alt="" />
+            </div>
             <span className="for-hint">
               უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს
             </span>
           </div>
+          <div id="buttons-next-back">
+            <Link to="/experience">
+              <button id="button-next">შემდეგი</button>
+            </Link>
+          </div>
         </form>
-        <div id="buttonsnextback">
-          <Link to="/experience">
-            <button id="buttonnext">შემდეგი</button>
-          </Link>
-        </div>
       </div>
       <Resume
         name={inputName}

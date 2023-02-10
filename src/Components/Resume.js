@@ -1,7 +1,9 @@
 import React from "react";
 import "./Resume.css";
+import star from "../UI/Assets/Images/star-logo.png";
 
 const Resume = (props) => {
+  console.log(props.src);
   return (
     <div className="resume-block">
       <div className="resume-view">
@@ -34,17 +36,24 @@ const Resume = (props) => {
             <h3 className="resume-about-me-header">ჩემ შესახებ</h3>
             <p className="resume-about-me-text">{props.aboutMe}</p>
           </div>
-          <div style={{
-      width: "246px",
-      height: "246px",
-      borderRadius: "50%",
-      overflow: "hidden",
-      display: "inline-block"
-    }}className="resume-profile-img">
-            <img src={props.src} alt="" style={{
-        width: "100%",
-        height: "100%"
-      }} ></img>
+          <div
+            style={{
+              width: "246px",
+              height: "246px",
+              borderRadius: "50%",
+              overflow: "hidden",
+              display: "inline-block",
+            }}
+            className="resume-profile-img"
+          >
+            <img
+              src={props.src}
+              alt=""
+              style={{
+                width: "100%",
+                height: "100%",
+              }}
+            ></img>
           </div>
         </div>
 
@@ -62,6 +71,7 @@ const Resume = (props) => {
           </div>
           <p className="resume-about-experience">{props.aboutJob}</p>
         </div>
+
         <div className="resume-education">
           <h3 className="resume-education-header">განათლება</h3>
           <div className="resume-institute-dates">
@@ -77,11 +87,7 @@ const Resume = (props) => {
           </div>
           <p className="resume-about-education">{props.aboutEducation}</p>
         </div>
-        <img
-          className="resume-star"
-          src="./assets/images/starIcon.svg"
-          alt=""
-        />
+        <img className="resume-star" src={star} alt="" />
       </div>
     </div>
   );

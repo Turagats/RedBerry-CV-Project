@@ -4,15 +4,16 @@
 
 .education-information {
   width: 100%;
-  
   background-color: #F9F9F9;
+
 }
+
 
 .education-information-form {
   display: flex;
   flex-direction: column;
   padding: 2.1875rem 9.375rem;
-  width: 57.1875%;
+  width: 100%;
   min-height: 45.5rem;
   background-color: inherit;
 }
@@ -84,9 +85,6 @@
 
 }
 
-.button-container {
-  justify-content: space-between;
-}
 
 .add-education-button {
   font-weight: 500;
@@ -98,5 +96,6 @@
   border-radius: 4px;
   width: fit-content;
   margin-bottom: 7.1875rem;
+  margin-left: 9.3125rem;
   padding: 0.875rem 1.3125rem;
 }

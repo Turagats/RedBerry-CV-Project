@@ -1,5 +1,6 @@
 import React from "react";
 import Resume from "./Resume";
+import "./sacdeli.css";
 
 const Sacdeli = () => {
   const inputPosition = localStorage.getItem("position" || "");
@@ -20,23 +21,25 @@ const Sacdeli = () => {
   const inputMobile = localStorage.getItem("mobile" || "");
   const photo = localStorage.getItem("profile-photo" || null);
   return (
-    <Resume
-      name={inputName}
-      lastName={inputLastName}
-      aboutMe={inputaboutMe}
-      email={inputEmail}
-      mobile={inputMobile}
-      position={inputPosition}
-      employer={inputEmployer}
-      startingDate={inputStartingDate}
-      endingDate={inputEndingDate}
-      aboutJob={inputAboutJob}
-      educational={inputEducational}
-      degree={inputDegree}
-      educationalEnding={inputEducationEndingDate}
-      aboutEducation={inputAboutEducation}
-      src={photo}
-    />
+    <div className="center">
+      <Resume
+        name={inputName}
+        lastName={inputLastName}
+        aboutMe={inputaboutMe}
+        email={inputEmail}
+        mobile={inputMobile}
+        position={inputPosition}
+        employer={inputEmployer}
+        startingDate={inputStartingDate}
+        endingDate={inputEndingDate}
+        aboutJob={inputAboutJob}
+        educational={inputEducational}
+        degree={inputDegree}
+        educationalEnding={inputEducationEndingDate}
+        aboutEducation={inputAboutEducation}
+        src={photo}
+      />
+    </div>
   );
 };
 

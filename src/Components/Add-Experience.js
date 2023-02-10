@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Add-Experience.css";
 import Resume from "./Resume";
+import redTriangle from "../UI/Assets/Images/red-triangle.png";
+import greenCheck from "../UI/Assets/Images/green-bird.png";
 
 const AddExperience = (props) => {
   console.log(props.experinceQuantity);
@@ -100,27 +102,35 @@ const AddExperience = (props) => {
       <div className="position-information">
         <label htmlFor="position-name">თანამდებობა</label>
 
-        <input
-          type="text"
-          id="position-name"
-          name=""
-          placeholder="დეველოპერი, დიზაინერი, ა.შ."
-          onChange={HandeChengePosition}
-          value={inputPosition}
-          required
-        />
+        <div className="input-checks-wrapper">
+          <input
+            type="text"
+            id="position-name"
+            name=""
+            placeholder="დეველოპერი, დიზაინერი, ა.შ."
+            onChange={HandeChengePosition}
+            value={inputPosition}
+            required
+          />
+          <img className="green-check" src={greenCheck} alt="" />
+          <img className="red-triangle" src={redTriangle} alt="" />
+        </div>
         <span className="for-hint">მინიმუმ 2 სიმბოლო</span>
       </div>
       <div className="company-information">
         <label htmlFor="company-name">დამსაქმებელი</label>
-        <input
-          type="text"
-          id="company-name"
-          placeholder="დამსაქმებელი"
-          value={inputEmployer}
-          onChange={HandeChengeEmployer}
-          required
-        />
+        <div className="input-checks-wrapper">
+          <input
+            type="text"
+            id="company-name"
+            placeholder="დამსაქმებელი"
+            value={inputEmployer}
+            onChange={HandeChengeEmployer}
+            required
+          />
+          <img className="green-check" src={greenCheck} alt="" />
+          <img className="red-triangle" src={redTriangle} alt="" />
+        </div>
         <span className="for-hint">მინიმუმ 2 სიმბოლო</span>
       </div>
       <div className="start-end-date">

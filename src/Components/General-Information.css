@@ -97,6 +97,7 @@ input {
     width: 100%;
     border: 1px solid #BCBCBC;
     border-radius: 4px;
+    border-color: #1A1A1A;
 }
 
 .about-me-optional {

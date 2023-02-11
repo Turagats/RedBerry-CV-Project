@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import "./General-Information.css";
 import { Link } from "react-router-dom";
 import forbackVector from "../UI/Assets/Images/Vector.svg";
-// import forbackEclipse from "../UI/Assets/Images/Ellipse 1.svg";
 import Resume from "./Resume";
 import redTriangle from "../UI/Assets/Images/red-triangle.png";
 import greenCheck from "../UI/Assets/Images/green-bird.png";
@@ -39,13 +38,14 @@ const GeneralInformation = () => {
   }, [photo]);
 
   // Name
+
   const [inputName, setInputName] = useState(
     localStorage.getItem("name") || ""
   );
   const HandeChengeName = (event) => {
     setInputName(event.target.value);
-    console.log(event);
   };
+
   useEffect(() => {
     localStorage.setItem("name", inputName);
   }, [inputName]);
@@ -57,7 +57,6 @@ const GeneralInformation = () => {
   );
   const HandeChengeLastName = (event) => {
     setInputLastName(event.target.value);
-    console.log(event);
   };
   useEffect(() => {
     localStorage.setItem("lastname", inputLastName);
@@ -100,35 +99,55 @@ const GeneralInformation = () => {
     localStorage.setItem("mobile", inputMobile);
   }, [inputMobile]);
 
-  // const [errors, setErrors] = useState({ name: null, surname: null });
+  //validation Name
+  const [isNameValid, setNameIsValid] = useState(false);
+  const [isNameTouched, setNameIsTouched] = useState(false);
 
-  // const handleChange = (field, event) => {
-  //   const { value } = event.target;
+  const handleBlurName = () => {
+    setNameIsTouched(true);
 
-  //   if (!value) {
-  //     setErrors({ ...errors, [field]: `${field} is required` });
-  //     return;
-  //   }
+    const pattern = /^[\u10A0-\u10FF]+$/;
+    setNameIsValid(inputName.length >= 2 && pattern.test(inputName));
+  };
 
-  //   if (value.length < 2) {
-  //     setErrors({
-  //       ...errors,
-  //       [field]: `${field} can only contain 2 characters`,
-  //     });
-  //     return;
-  //   }
+  //validation Last Name
 
-  //   if (/[^ა-ჰ ]/g.test(value)) {
-  //     setErrors({
-  //       ...errors,
-  //       [field]: `${field} can only contain Georgian characters`,
-  //     });
-  //     return;
-  //   }
+  const [isLastNameValid, setLastNameIsValid] = useState(false);
+  const [isLastNameTouched, setLastNameIsTouched] = useState(false);
 
-  //   setErrors({ ...errors, [field]: null });
-  //   onChange(field, value);
-  // };
+  const handleBlurLastName = () => {
+    setLastNameIsTouched(true);
+
+    const pattern = /^[\u10A0-\u10FF]+$/;
+    setLastNameIsValid(
+      inputLastName.length >= 2 && pattern.test(inputLastName)
+    );
+  };
+
+  // validation email
+  const [isEmailValid, setEmailIsValid] = useState(false);
+  const [isEmailTouched, setEmailIsTouched] = useState(false);
+
+  const handleBlurEmail = () => {
+    setEmailIsTouched(true);
+
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@redberry\.ge$/;
+    setEmailIsValid(emailPattern.test(inputEmail));
+  };
+
+  //validate number
+
+  const [isMobileValid, setMobileIsValid] = useState(false);
+  const [isMobileTouched, setMobileIsTouched] = useState(false);
+
+  const handleBlurMobile = () => {
+    setMobileIsTouched(true);
+    if (inputMobile.length === 13 && inputMobile.startsWith("+995")) {
+      setMobileIsValid(true);
+    } else {
+      setMobileIsValid(false);
+    }
+  };
 
   return (
     <section className="general-information">
@@ -140,7 +159,6 @@ const GeneralInformation = () => {
           </div>
           <Link to="/">
             <div className="back-to-landging-page">
-              {/* <img src={forbackEclipse} className="eclipse" alt="back" /> */}
               <img src={forbackVector} className="vector" alt="back" />
             </div>
           </Link>
@@ -151,20 +169,47 @@ const GeneralInformation = () => {
                 <input
                   type="text"
                   id="first-name"
-                  // onChange={(event) => handleChange("name", event)}
                   onChange={HandeChengeName}
-                  minLength={2}
+                  onBlur={handleBlurName}
+                  style={{
+                    borderColor: isNameTouched
+                      ? isNameValid
+                        ? "green"
+                        : "red"
+                      : "black",
+                  }}
                   required
                   value={inputName}
                   placeholder="სახელი"
                 />
-                <img className="green-check" src={greenCheck} alt="" />
-                <img className="red-triangle" src={redTriangle} alt="" />
-
-                {/* {errors.name && <div style={{ color: "red" }}>{errors.name}</div>} */}
+                <img
+                  className="green-check"
+                  src={greenCheck}
+                  alt=""
+                  style={{
+                    display: isNameTouched
+                      ? isNameValid
+                        ? "block"
+                        : "none"
+                      : "none",
+                  }}
+                />
+                <img
+                  className="red-triangle"
+                  src={redTriangle}
+                  alt=""
+                  style={{
+                    display: isNameTouched
+                      ? isNameValid
+                        ? "none"
+                        : "block"
+                      : "none",
+                  }}
+                />
               </div>
               <span className="for-hint">მინიმუმ 2 ასო, ქართული ასოები</span>
             </div>
+
             <div className="input-name">
               <label htmlFor="last-name">გვარი</label>
               <div className="input-checks-wrapper">
@@ -174,10 +219,40 @@ const GeneralInformation = () => {
                   placeholder="გვარი"
                   value={inputLastName}
                   required
+                  style={{
+                    borderColor: isLastNameTouched
+                      ? isLastNameValid
+                        ? "green"
+                        : "red"
+                      : "black",
+                  }}
                   onChange={HandeChengeLastName}
+                  onBlur={handleBlurLastName}
                 />
-                <img className="green-check" src={greenCheck} alt="" />
-                <img className="red-triangle" src={redTriangle} alt="" />
+                <img
+                  className="green-check"
+                  src={greenCheck}
+                  alt=""
+                  style={{
+                    display: isLastNameTouched
+                      ? isLastNameValid
+                        ? "block"
+                        : "none"
+                      : "none",
+                  }}
+                />
+                <img
+                  className="red-triangle"
+                  src={redTriangle}
+                  alt=""
+                  style={{
+                    display: isLastNameTouched
+                      ? isLastNameValid
+                        ? "none"
+                        : "block"
+                      : "none",
+                  }}
+                />
               </div>
               <span className="for-hint">მინიმუმ 2 ასო, ქართული ასოები</span>
             </div>
@@ -194,9 +269,6 @@ const GeneralInformation = () => {
                 onChange={handleChange}
               />
             </div>
-            {/* <button className="upload-photo-button" onClick={uploadFile}>
-              ატვირთვა
-            </button> */}
           </div>
 
           <div className="about-me-optional">
@@ -221,9 +293,39 @@ const GeneralInformation = () => {
                 value={inputEmail}
                 required
                 onChange={HandeChangeEmail}
+                onBlur={handleBlurEmail}
+                style={{
+                  borderColor: isEmailTouched
+                    ? isEmailValid
+                      ? "green"
+                      : "red"
+                    : "black",
+                }}
               />
-              <img className="green-check" src={greenCheck} alt="" />
-              <img className="red-triangle" src={redTriangle} alt="" />
+              <img
+                className="green-check"
+                src={greenCheck}
+                alt=""
+                style={{
+                  display: isEmailTouched
+                    ? isEmailValid
+                      ? "block"
+                      : "none"
+                    : "none",
+                }}
+              />
+              <img
+                className="red-triangle"
+                src={redTriangle}
+                alt=""
+                style={{
+                  display: isEmailTouched
+                    ? isEmailValid
+                      ? "none"
+                      : "block"
+                    : "none",
+                }}
+              />
             </div>
             <span className="for-hint">უნდა მთავრდებოდეს @redberry.ge-ით</span>
           </div>
@@ -237,9 +339,39 @@ const GeneralInformation = () => {
                 value={inputMobile}
                 required
                 onChange={HandeChangeMobile}
+                onBlur={handleBlurMobile}
+                style={{
+                  borderColor: isMobileTouched
+                    ? isMobileValid
+                      ? "green"
+                      : "red"
+                    : "black",
+                }}
               />
-              <img className="green-check" src={greenCheck} alt="" />
-              <img className="red-triangle" src={redTriangle} alt="" />
+              <img
+                className="green-check"
+                src={greenCheck}
+                alt=""
+                style={{
+                  display: isMobileTouched
+                    ? isMobileValid
+                      ? "block"
+                      : "none"
+                    : "none",
+                }}
+              />
+              <img
+                className="red-triangle"
+                src={redTriangle}
+                alt=""
+                style={{
+                  display: isMobileTouched
+                    ? isMobileValid
+                      ? "none"
+                      : "block"
+                    : "none",
+                }}
+              />
             </div>
             <span className="for-hint">
               უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს

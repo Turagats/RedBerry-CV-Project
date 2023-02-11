@@ -5,7 +5,10 @@ import redTriangle from "../UI/Assets/Images/red-triangle.png";
 import greenCheck from "../UI/Assets/Images/green-bird.png";
 
 const AddExperience = (props) => {
+  // console.log('data: ', props);
   console.log(props.experinceQuantity);
+  // var experience = props.experience;
+  // var setExperiences = props.setExperiences;
 
   const inputName = localStorage.getItem("name" || "");
   const inputLastName = localStorage.getItem("lastname" || "");
@@ -27,13 +30,27 @@ const AddExperience = (props) => {
   const [inputPosition, setInputPosition] = useState(
     localStorage.getItem("position") || ""
   );
-  const HandeChengePosition = (event) => {
-    setInputPosition(event.target.value);
-    console.log();
-  };
+
   useEffect(() => {
     localStorage.setItem("position", inputPosition);
   }, [inputPosition]);
+
+  // validate position
+  const [isPositionValid, setIsPositionValid] = useState(false);
+  const [isPositionTouched, setIsPositionTouched] = useState(false);
+
+  const HandeChengePosition = (event) => {
+    setInputPosition(event.target.value);
+    setIsPositionTouched(true);
+  };
+
+  const handleBlurPosition = () => {
+    if (isPositionValid.length >= 2) {
+      setIsPositionValid(true);
+    } else {
+      setIsPositionValid(false);
+    }
+  };
 
   //employer
   const [inputEmployer, setInputEmployer] = useState(
@@ -41,6 +58,7 @@ const AddExperience = (props) => {
   );
   const HandeChengeEmployer = (event) => {
     setInputEmployer(event.target.value);
+    // setExperiences([{employer:event.target.value}]);
   };
   useEffect(() => {
     localStorage.setItem("employer", inputEmployer);
@@ -111,9 +129,29 @@ const AddExperience = (props) => {
             onChange={HandeChengePosition}
             value={inputPosition}
             required
+            onBlur={handleBlurPosition}
+            style={{
+              borderColor: isPositionTouched
+                ? isPositionValid
+                  ? "green"
+                  : "red"
+                : "black",
+            }}
           />
-          <img className="green-check" src={greenCheck} alt="" />
-          <img className="red-triangle" src={redTriangle} alt="" />
+          <img className="green-check" src={greenCheck} alt="" style={{
+                    display: isPositionValid
+                      ? isPositionValid
+                        ? "block"
+                        : "none"
+                      : "none",
+                  }}/>
+          <img className="red-triangle" src={redTriangle} alt="" style={{
+                    display: isPositionTouched
+                      ? isPositionValid
+                        ? "none"
+                        : "block"
+                      : "none",
+                  }}/>
         </div>
         <span className="for-hint">მინიმუმ 2 სიმბოლო</span>
       </div>

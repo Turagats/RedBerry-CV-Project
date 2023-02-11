@@ -31,6 +31,16 @@ const GeneralInformation = () => {
 
   const handleChange = (e) => {
     setPhoto(URL.createObjectURL(e.target.files[0]));
+
+    console.log(e.target.files[0]);
+    console.log(URL.createObjectURL(e.target.files[0]));
+    // var imageFile = this.files[0];
+    // var reader = new FileReader();
+    // reader.readAsDataURL(URL.createObjectURL(e.target.files[0]));
+    // reader.onload = function () {
+    //   var base64String = reader.result;
+    //   console.log(base64String);
+    // };
   };
 
   useEffect(() => {
@@ -148,6 +158,11 @@ const GeneralInformation = () => {
       setMobileIsValid(false);
     }
   };
+
+  // about me border color
+
+
+
 
   return (
     <section className="general-information">
@@ -267,6 +282,7 @@ const GeneralInformation = () => {
                 id="image-input"
                 style={{ display: "none" }}
                 onChange={handleChange}
+                required
               />
             </div>
           </div>
@@ -281,6 +297,7 @@ const GeneralInformation = () => {
               rows="5"
               onChange={HandeChangeAboutme}
               value={inputaboutMe}
+              style={{borderColor: inputaboutMe.length > 0  ?  "green" : "black" }}
             ></textarea>
           </div>
           <div className="email">
@@ -378,7 +395,7 @@ const GeneralInformation = () => {
             </span>
           </div>
           <div id="buttons-next-back">
-            <Link to="/experience">
+            <Link to="/experience" className="button-wrapper-to-link">
               <button id="button-next">შემდეგი</button>
             </Link>
           </div>

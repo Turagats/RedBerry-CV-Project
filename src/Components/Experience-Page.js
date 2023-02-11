@@ -16,9 +16,23 @@ const ExperincePage = (props) => {
   // const inputEmployer = localStorage.getItem("employer" || "");
 
   const [experienceCount, setExperienceCount] = useState(1);
+  // const [experiences, setExperiences] = useState([]);
+
   const onClickaddExperience = () => {
+    // experiences.push({
+    //   employer: Math.random(),
+    // });
+    // console.log(experiences);
+    // setExperiences(experiences);
     setExperienceCount(experienceCount + 1);
   };
+
+  // let experiences = [
+  //   {
+  //     employer: "foobar",
+  //     startingDate: "foobar",
+  //   },
+  // ];
 
   return (
     <section className="experinece-inofrmation">
@@ -39,6 +53,26 @@ const ExperincePage = (props) => {
               <AddExperience experinceQuantity={i} key={i} />
             ))}
           </div>
+{/* 
+          <div>
+            {experiences.map((e, i) => (
+              <AddExperience
+                experinceQuantity={1}
+                key={i}
+                experience={e}
+                setExperiences={setExperiences}
+              />
+            ))}
+          </div> */}
+          {/* <div>
+            {Array.from({ length: experienceCount }, (j, i) => (
+              <AddExperience
+                experinceQuantity={i}
+                key={i}
+                experience={experiences[i]}
+              />
+            ))}
+          </div> */}
         </form>
         <button
           className="add-experience-button"

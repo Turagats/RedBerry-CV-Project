@@ -3,7 +3,6 @@ import "./Resume.css";
 import star from "../UI/Assets/Images/star-logo.png";
 
 const Resume = (props) => {
-  console.log(props.src);
   return (
     <div className="resume-block">
       <div className="resume-view">

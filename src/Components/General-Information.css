@@ -174,3 +174,7 @@ input {
     width: 1.3125rem;
 
 }
+
+.button-wrapper-to-link {
+    float: right
+}

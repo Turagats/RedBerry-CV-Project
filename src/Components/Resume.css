@@ -1,5 +1,5 @@
 .resume-block {
-    
+
     width: 822px;
     height: 1080px;
     right: 0px;
@@ -9,6 +9,7 @@
 
 .resume-view {
     width: 51.375rem;
+    padding: 3rem 5rem;
     min-height: 67.5rem;
     display: flex;
     flex-direction: column;
@@ -21,14 +22,26 @@
     position: relative;
 }
 
+.resume-about-me-text {
+    padding-right: 250px;
+    margin-right: 200px;
+}
+
 .resume-name-lastname {
     margin-bottom: 1rem;
+
 }
+
 
 h1 {
     margin: 0;
     font-size: 2.125rem;
     line-height: 2.625rem;
+    color: #F93B1D;
+}
+
+h3 {
+    color: #F93B1D;
 }
 
 .resume-contact {
@@ -47,10 +60,13 @@ h1 {
 .resume-profile-img {
     position: absolute;
     border-radius: 50%;
-    top: 3rem;
-    right: 4.6875rem;
+    top: -1rem;
+    right: -3rem;
     box-shadow: rgba(0, 0, 0, 15) 0px 3px 10px;
 }
+
+
+
 
 .resume-dates,
 .resume-graduation-year {

@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import GeneralInformation from "./Components/General-Information";
 import ExperincePage from "./Components/Experience-Page";
 import EducationPage from "./Components/Education-page";
-import Resume from "./Components/Resume";
+// import Resume from "./Components/Resume";
 import Sacdeli from "./Components/sacdeli";
 
 
@@ -13,7 +13,7 @@ const router = createBrowserRouter([
   { path: "/general-information", element: <GeneralInformation /> },
   { path: "/experience", element: <ExperincePage /> },
   { path: "/education", element: <EducationPage /> },
-  { path: "/resumes", element: <Resume /> },
+  { path: "/resumes", element: <Sacdeli /> },
   { path: "/sacdeli", element: <Sacdeli /> },
 ]);
 

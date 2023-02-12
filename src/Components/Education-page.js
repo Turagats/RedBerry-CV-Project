@@ -43,7 +43,7 @@ const EducationPage = () => {
             <button className="button-previous">უკან</button>
           </Link>
           {/* <Link to="/resumes"> */}
-            <CVFormAPI />
+          <CVFormAPI />
           {/* </Link> */}
         </div>
       </div>

@@ -32,7 +32,14 @@ const Resume = (props) => {
             </div>
           </div>
           <div className="resume-about-me">
-            <h3 className="resume-about-me-header">ჩემ შესახებ</h3>
+            <h3
+              className="resume-about-me-header"
+              style={{
+                display: props.aboutMe ? "block" : "none",
+              }}
+            >
+              ჩემ შესახებ
+            </h3>
             <p className="resume-about-me-text">{props.aboutMe}</p>
           </div>
           <div
@@ -41,7 +48,7 @@ const Resume = (props) => {
               height: "246px",
               borderRadius: "50%",
               overflow: "hidden",
-              display: "inline-block",
+              display: props.src ? "block" : "none",
             }}
             className="resume-profile-img"
           >
@@ -51,30 +58,85 @@ const Resume = (props) => {
               style={{
                 width: "100%",
                 height: "100%",
+                display : props.src  ?   "block" :  "block"
               }}
             ></img>
           </div>
         </div>
 
-        <div className="resume-experience">
-          <h3 className="resume-Experience-Heading">გამოცდილება</h3>
+        <div
+          className="resume-experience"
+          style={{
+            borderTop:
+              props.position || props.employer ? "1px solid #c8c8c8" : "0px",
+          }}
+        >
+          <h3
+            className="resume-Experience-Heading"
+            style={{
+              display: props.position || props.employer ? "block" : "none",
+            }}
+          >
+            გამოცდილება
+          </h3>
           <div className="resume-Position-Dates">
-            <div className="resume-position-employer">
+            <div
+              className="resume-position-employer"
+              style={{
+                display: props.position || props.employer ? "block" : "none",
+              }}
+            >
               <span className="resume-Position">{props.position}</span>,
               <span className="resume-Employer"> {props.employer}</span>
             </div>
-            <div className="resume-dates">
+            <div
+              className="resume-dates"
+              style={{
+                display:
+                  props.startingDate || props.endingDate ? "block" : "none",
+              }}
+            >
               <span className="resume-statring-date">{props.startingDate}</span>{" "}
-              -<span className="resume-ending-date">{props.endingDate}</span>
+              - <span className="resume-ending-date">{props.endingDate}</span>
             </div>
           </div>
           <p className="resume-about-experience">{props.aboutJob}</p>
         </div>
 
-        <div className="resume-education">
-          <h3 className="resume-education-header">განათლება</h3>
+        <div
+          className="resume-education"
+          style={{
+            borderTop:
+              props.degree || props.educational || props.educationalEnding
+                ? "1px solid #c8c8c8"
+                : "0px",
+          }}
+        >
+          <h3
+            className="resume-education-header"
+            style={{
+              display:
+                props.degree ||
+                props.educational ||
+                props.educationalEnding ||
+                props.educationalEnding ||
+                props.aboutEducation
+                  ? "block"
+                  : "none",
+            }}
+          >
+            განათლება
+          </h3>
           <div className="resume-institute-dates">
-            <div className="resume-institute-dates">
+            <div
+              className="resume-institute-dates"
+              style={{
+                display:
+                  props.educational || props.educationalEnding
+                    ? "block"
+                    : "none",
+              }}
+            >
               <span className="resume-institute">{props.educational}</span>,
               <span className="resume-degree"> {props.degree}</span>
             </div>

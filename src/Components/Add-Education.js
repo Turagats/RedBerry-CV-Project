@@ -52,10 +52,12 @@ const AddEducation = (props) => {
   };
 
   useEffect(() => {
+    
     sessionStorage.setItem("degree", inputDegree);
   }, [inputDegree]);
 
   useEffect(() => {
+    console.log(inputDegreeId)
     sessionStorage.setItem("degree_id", inputDegreeId);
   }, [inputDegreeId]);
 
@@ -70,6 +72,7 @@ const AddEducation = (props) => {
   useEffect(() => {
     sessionStorage.setItem("education-ending-date", inputEducationEndingDate);
   }, [inputEducationEndingDate]);
+  
 
   // about education
 

@@ -7,7 +7,7 @@ import Resume from "./Resume";
 import redTriangle from "../UI/Assets/Images/red-triangle.png";
 import greenCheck from "../UI/Assets/Images/green-bird.png";
 
-const GeneralInformation = () => {
+const GeneralInformation = ({children}) => {
   const inputPosition = sessionStorage.getItem("position" || "");
   const inputEmployer = sessionStorage.getItem("employer" || "");
   const inputStartingDate = sessionStorage.getItem("starting-date" || "");
@@ -25,6 +25,7 @@ const GeneralInformation = () => {
   const uploadFile = () => {
     document.getElementById("image-input").click();
   };
+
   const [photo, setPhoto] = useState(
     sessionStorage.getItem("profile-photo") || null
   );
@@ -33,11 +34,8 @@ const GeneralInformation = () => {
     setPhoto(URL.createObjectURL(e.target.files[0]));
     // setPhoto(e.target.files[0]);
 
-
     console.log(e.target.files[0]);
     console.log(URL.createObjectURL(e.target.files[0]));
-    sessionStorage.setItem("profile123", URL.createObjectURL(e.target.files[0]));
-
     
   };
 
@@ -415,6 +413,8 @@ const GeneralInformation = () => {
         aboutEducation={inputAboutEducation}
         src={photo}
       />
+      
+    
     </section>
   );
 };

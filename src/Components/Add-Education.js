@@ -9,17 +9,17 @@ const AddEducation = (props) => {
   // const myjson = { id: 0, title: "აირჩიეთ საწყისი" };
   // const [some, setSome] = useState([]);
 
-  const inputName = localStorage.getItem("name") || "";
-  const inputLastName = localStorage.getItem("lastname") || "";
-  const inputaboutMe = localStorage.getItem("aboutme") || "";
-  const inputEmail = localStorage.getItem("email") || "";
-  const inputMobile = localStorage.getItem("mobile") || "";
-  const inputPosition = localStorage.getItem("position" || "");
-  const inputEmployer = localStorage.getItem("employer" || "");
-  const inputStartingDate = localStorage.getItem("starting-date" || "");
-  const inputEndingDate = localStorage.getItem("ending-date" || "");
-  const inputAboutJob = localStorage.getItem("about-job" || "");
-  const photo = localStorage.getItem("profile-photo" || null);
+  const inputName = sessionStorage.getItem("name") || "";
+  const inputLastName = sessionStorage.getItem("lastname") || "";
+  const inputaboutMe = sessionStorage.getItem("aboutme") || "";
+  const inputEmail = sessionStorage.getItem("email") || "";
+  const inputMobile = sessionStorage.getItem("mobile") || "";
+  const inputPosition = sessionStorage.getItem("position" || "");
+  const inputEmployer = sessionStorage.getItem("employer" || "");
+  const inputStartingDate = sessionStorage.getItem("starting-date" || "");
+  const inputEndingDate = sessionStorage.getItem("ending-date" || "");
+  const inputAboutJob = sessionStorage.getItem("about-job" || "");
+  const photo = sessionStorage.getItem("profile-photo" || null);
   useEffect(() => {
     fetch("https://resume.redberryinternship.ge/api/degrees")
       .then((response) => response.json())
@@ -29,48 +29,48 @@ const AddEducation = (props) => {
 
   //about educational
   const [inputEducational, setInputEducational] = useState(
-    localStorage.getItem("educational") || ""
+    sessionStorage.getItem("educational") || ""
   );
   const HandleChangeEducational = (event) => {
     setInputEducational(event.target.value);
   };
   useEffect(() => {
-    localStorage.setItem("educational", inputEducational);
+    sessionStorage.setItem("educational", inputEducational);
   }, [inputEducational]);
 
   //anbout degree
   const [inputDegree, setInputDegree] = useState(
-    localStorage.getItem("degree") || ""
+    sessionStorage.getItem("degree") || ""
   );
   const HandleChangeDegree = (event) => {
     setInputDegree(event.target.value);
   };
   useEffect(() => {
-    localStorage.setItem("degree", inputDegree);
+    sessionStorage.setItem("degree", inputDegree);
   }, [inputDegree]);
 
   // ending date
 
   const [inputEducationEndingDate, setInputEducationEndingDate] = useState(
-    localStorage.getItem("education-ending-date") || ""
+    sessionStorage.getItem("education-ending-date") || ""
   );
   const HandleChangeEducationEndingDate = (event) => {
     setInputEducationEndingDate(event.target.value);
   };
   useEffect(() => {
-    localStorage.setItem("education-ending-date", inputEducationEndingDate);
+    sessionStorage.setItem("education-ending-date", inputEducationEndingDate);
   }, [inputEducationEndingDate]);
 
   // about education
 
   const [inputAboutEducation, setInputinputAboutEducation] = useState(
-    localStorage.getItem("about-education") || ""
+    sessionStorage.getItem("about-education") || ""
   );
   const HandleChangeAboutEducation = (event) => {
     setInputinputAboutEducation(event.target.value);
   };
   useEffect(() => {
-    localStorage.setItem("about-education", inputAboutEducation);
+    sessionStorage.setItem("about-education", inputAboutEducation);
   }, [inputAboutEducation]);
 
   return (

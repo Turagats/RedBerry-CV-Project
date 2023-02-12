@@ -10,29 +10,29 @@ const AddExperience = (props) => {
   // var experience = props.experience;
   // var setExperiences = props.setExperiences;
 
-  const inputName = localStorage.getItem("name" || "");
-  const inputLastName = localStorage.getItem("lastname" || "");
-  const inputaboutMe = localStorage.getItem("aboutme" || "");
-  const inputEmail = localStorage.getItem("email" || "");
-  const inputMobile = localStorage.getItem("mobile" || "");
-  const inputEducational = localStorage.getItem("educational" || "");
-  const inputDegree = localStorage.getItem("degree" || "");
-  const inputEducationEndingDate = localStorage.getItem(
+  const inputName = sessionStorage.getItem("name" || "");
+  const inputLastName = sessionStorage.getItem("lastname" || "");
+  const inputaboutMe = sessionStorage.getItem("aboutme" || "");
+  const inputEmail = sessionStorage.getItem("email" || "");
+  const inputMobile = sessionStorage.getItem("mobile" || "");
+  const inputEducational = sessionStorage.getItem("educational" || "");
+  const inputDegree = sessionStorage.getItem("degree" || "");
+  const inputEducationEndingDate = sessionStorage.getItem(
     "education-ending-date" || ""
   );
-  const inputAboutEducation = localStorage.getItem("about-education" || "");
-  const photo = localStorage.getItem("profile-photo" || null);
+  const inputAboutEducation = sessionStorage.getItem("about-education" || "");
+  const photo = sessionStorage.getItem("profile-photo" || null);
 
-  // const inputPosition = localStorage.getItem("position" || "");
-  // const inputEmployer = localStorage.getItem("employer" || "");
+  // const inputPosition = sessionStorage.getItem("position" || "");
+  // const inputEmployer = sessionStorage.getItem("employer" || "");
 
   //position
   const [inputPosition, setInputPosition] = useState(
-    localStorage.getItem("position") || ""
+    sessionStorage.getItem("position") || ""
   );
 
   useEffect(() => {
-    localStorage.setItem("position", inputPosition);
+    sessionStorage.setItem("position", inputPosition);
   }, [inputPosition]);
 
   // validate position
@@ -54,47 +54,47 @@ const AddExperience = (props) => {
 
   //employer
   const [inputEmployer, setInputEmployer] = useState(
-    localStorage.getItem("employer") || ""
+    sessionStorage.getItem("employer") || ""
   );
   const HandeChengeEmployer = (event) => {
     setInputEmployer(event.target.value);
     // setExperiences([{employer:event.target.value}]);
   };
   useEffect(() => {
-    localStorage.setItem("employer", inputEmployer);
+    sessionStorage.setItem("employer", inputEmployer);
   }, [inputEmployer]);
 
   //start date
   const [inputStartingDate, setInputStartingDate] = useState(
-    localStorage.getItem("starting-date") || ""
+    sessionStorage.getItem("starting-date") || ""
   );
   const HandleChangeStartingDate = (event) => {
     setInputStartingDate(event.target.value);
   };
   useEffect(() => {
-    localStorage.setItem("starting-date", inputStartingDate);
+    sessionStorage.setItem("starting-date", inputStartingDate);
   }, [inputStartingDate]);
 
   //end date
   const [inputEndingDate, setInputEndingDate] = useState(
-    localStorage.getItem("ending-date") || ""
+    sessionStorage.getItem("ending-date") || ""
   );
   const HandleChangeEndingDate = (event) => {
     setInputEndingDate(event.target.value);
   };
   useEffect(() => {
-    localStorage.setItem("ending-date", inputEndingDate);
+    sessionStorage.setItem("ending-date", inputEndingDate);
   }, [inputEndingDate]);
 
   //about job
   const [inputAboutJob, setInputAboutJob] = useState(
-    localStorage.getItem("about-job") || ""
+    sessionStorage.getItem("about-job") || ""
   );
   const HandleChangeAboutJob = (event) => {
     setInputAboutJob(event.target.value);
   };
   useEffect(() => {
-    localStorage.setItem("about-job", inputAboutJob);
+    sessionStorage.setItem("about-job", inputAboutJob);
   }, [inputAboutJob]);
 
   return (

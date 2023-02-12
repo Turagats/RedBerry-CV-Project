@@ -3,23 +3,23 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const CVFormAPI = () => {
-  const inputPosition = localStorage.getItem("position" || "");
-  const inputEmployer = localStorage.getItem("employer" || "");
-  const inputStartingDate = localStorage.getItem("starting-date" || "");
-  const inputEndingDate = localStorage.getItem("ending-date" || "");
-  const inputAboutJob = localStorage.getItem("about-job" || "");
-  const inputEducational = localStorage.getItem("educational" || "");
-  const inputDegree = localStorage.getItem("degree" || "");
-  const inputEducationEndingDate = localStorage.getItem(
+  const inputPosition = sessionStorage.getItem("position" || "");
+  const inputEmployer = sessionStorage.getItem("employer" || "");
+  const inputStartingDate = sessionStorage.getItem("starting-date" || "");
+  const inputEndingDate = sessionStorage.getItem("ending-date" || "");
+  const inputAboutJob = sessionStorage.getItem("about-job" || "");
+  const inputEducational = sessionStorage.getItem("educational" || "");
+  const inputDegree = sessionStorage.getItem("degree" || "");
+  const inputEducationEndingDate = sessionStorage.getItem(
     "education-ending-date" || ""
   );
-  const inputAboutEducation = localStorage.getItem("about-education" || "");
-  const inputName = localStorage.getItem("name") || "";
-  const inputLastName = localStorage.getItem("lastname" || "");
-  const inputaboutMe = localStorage.getItem("aboutme" || "");
-  const inputEmail = localStorage.getItem("email" || "");
-  const inputMobile = localStorage.getItem("mobile" || "");
-  const photo = localStorage.getItem("profile-photo" || null);
+  const inputAboutEducation = sessionStorage.getItem("about-education" || "");
+  const inputName = sessionStorage.getItem("name") || "";
+  const inputLastName = sessionStorage.getItem("lastname" || "");
+  const inputaboutMe = sessionStorage.getItem("aboutme" || "");
+  const inputEmail = sessionStorage.getItem("email" || "");
+  const inputMobile = sessionStorage.getItem("mobile" || "");
+  const photo = sessionStorage.getItem("profile-photo" || null);
 
   const [formData, setFormData] = useState({
     // const formData = [

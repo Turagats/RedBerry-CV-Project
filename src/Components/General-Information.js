@@ -30,12 +30,14 @@ const GeneralInformation = () => {
   );
 
   const handleChange = (e) => {
-    // setPhoto(URL.createObjectURL(e.target.files[0]));
-    setPhoto(e.target.files[0]);
+    setPhoto(URL.createObjectURL(e.target.files[0]));
+    // setPhoto(e.target.files[0]);
 
 
     console.log(e.target.files[0]);
     console.log(URL.createObjectURL(e.target.files[0]));
+    sessionStorage.setItem("profile123", URL.createObjectURL(e.target.files[0]));
+
     
   };
 

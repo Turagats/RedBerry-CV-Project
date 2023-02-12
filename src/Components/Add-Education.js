@@ -26,7 +26,6 @@ const AddEducation = (props) => {
       .then((json) => setData(json))
       .catch((error) => console.error(error));
   }, []);
-  
 
   //about educational
   const [inputEducational, setInputEducational] = useState(
@@ -43,12 +42,18 @@ const AddEducation = (props) => {
   const [inputDegree, setInputDegree] = useState(
     sessionStorage.getItem("degree") || ""
   );
-  const [inputDegreeId, setInputDegreeId] = useState(0)
+  const [inputDegreeId, setInputDegreeId] = useState(
+    sessionStorage.getItem("degree_id") || ""
+  );
   const HandleChangeDegree = (event) => {
-    setInputDegree((parseInt(event.target.selectedOptions[0].id,10)));
-    setInputDegreeId(parseInt(event.target.selectedOptions[0].id))
+    setInputDegree(event.target.value);
+    setInputDegreeId(event.target.selectedOptions[0].id);
     // console.log(typeof(inputDegreeId))
   };
+
+  useEffect(() => {
+    sessionStorage.setItem("degree", inputDegree);
+  }, [inputDegree]);
 
   useEffect(() => {
     sessionStorage.setItem("degree_id", inputDegreeId);
@@ -110,7 +115,11 @@ const AddEducation = (props) => {
               აირჩიეთ ხარისხი
             </option>
             {data
-              ? data.map((item) => <option id={item.id} key={item.id}>{item.title}</option>)
+              ? data.map((item) => (
+                  <option id={item.id} key={item.id}>
+                    {item.title}
+                  </option>
+                ))
               : "Loading..."}
           </select>
         </div>

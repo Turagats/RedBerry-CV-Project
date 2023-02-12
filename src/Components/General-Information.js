@@ -8,17 +8,17 @@ import redTriangle from "../UI/Assets/Images/red-triangle.png";
 import greenCheck from "../UI/Assets/Images/green-bird.png";
 
 const GeneralInformation = () => {
-  const inputPosition = localStorage.getItem("position" || "");
-  const inputEmployer = localStorage.getItem("employer" || "");
-  const inputStartingDate = localStorage.getItem("starting-date" || "");
-  const inputEndingDate = localStorage.getItem("ending-date" || "");
-  const inputAboutJob = localStorage.getItem("about-job" || "");
-  const inputEducational = localStorage.getItem("educational" || "");
-  const inputDegree = localStorage.getItem("degree" || "");
-  const inputEducationEndingDate = localStorage.getItem(
+  const inputPosition = sessionStorage.getItem("position" || "");
+  const inputEmployer = sessionStorage.getItem("employer" || "");
+  const inputStartingDate = sessionStorage.getItem("starting-date" || "");
+  const inputEndingDate = sessionStorage.getItem("ending-date" || "");
+  const inputAboutJob = sessionStorage.getItem("about-job" || "");
+  const inputEducational = sessionStorage.getItem("educational" || "");
+  const inputDegree = sessionStorage.getItem("degree" || "");
+  const inputEducationEndingDate = sessionStorage.getItem(
     "education-ending-date" || ""
   );
-  const inputAboutEducation = localStorage.getItem("about-education" || "");
+  const inputAboutEducation = sessionStorage.getItem("about-education" || "");
 
   // for button upload
 
@@ -26,7 +26,7 @@ const GeneralInformation = () => {
     document.getElementById("image-input").click();
   };
   const [photo, setPhoto] = useState(
-    localStorage.getItem("profile-photo") || null
+    sessionStorage.getItem("profile-photo") || null
   );
 
   const handleChange = (e) => {
@@ -44,69 +44,69 @@ const GeneralInformation = () => {
   };
 
   useEffect(() => {
-    localStorage.setItem("profile-photo", photo);
+    sessionStorage.setItem("profile-photo", photo);
   }, [photo]);
 
   // Name
 
   const [inputName, setInputName] = useState(
-    localStorage.getItem("name") || ""
+    sessionStorage.getItem("name") || ""
   );
   const HandeChengeName = (event) => {
     setInputName(event.target.value);
   };
 
   useEffect(() => {
-    localStorage.setItem("name", inputName);
+    sessionStorage.setItem("name", inputName);
   }, [inputName]);
 
   // Last name
 
   const [inputLastName, setInputLastName] = useState(
-    localStorage.getItem("lastname") || ""
+    sessionStorage.getItem("lastname") || ""
   );
   const HandeChengeLastName = (event) => {
     setInputLastName(event.target.value);
   };
   useEffect(() => {
-    localStorage.setItem("lastname", inputLastName);
+    sessionStorage.setItem("lastname", inputLastName);
   }, [inputLastName]);
 
   //about me
   const [inputaboutMe, setInputAboutMe] = useState(
-    localStorage.getItem("aboutme") || ""
+    sessionStorage.getItem("aboutme") || ""
   );
 
   const HandeChangeAboutme = (event) => {
     setInputAboutMe(event.target.value);
   };
   useEffect(() => {
-    localStorage.setItem("aboutme", inputaboutMe);
+    sessionStorage.setItem("aboutme", inputaboutMe);
   }, [inputaboutMe]);
 
   //email
 
   const [inputEmail, setInputEmail] = useState(
-    localStorage.getItem("email") || ""
+    sessionStorage.getItem("email") || ""
   );
 
   const HandeChangeEmail = (event) => {
     setInputEmail(event.target.value);
   };
   useEffect(() => {
-    localStorage.setItem("email", inputEmail);
+    sessionStorage.setItem("email", inputEmail);
   }, [inputEmail]);
 
   // mobile
   const [inputMobile, setInputMobile] = useState(
-    localStorage.getItem("mobile") || ""
+    sessionStorage.getItem("mobile") || ""
   );
 
   const HandeChangeMobile = (event) => {
     setInputMobile(event.target.value);
   };
   useEffect(() => {
-    localStorage.setItem("mobile", inputMobile);
+    sessionStorage.setItem("mobile", inputMobile);
   }, [inputMobile]);
 
   //validation Name

@@ -42,9 +42,9 @@ const EducationPage = () => {
           <Link to="/experience">
             <button className="button-previous">უკან</button>
           </Link>
-          <Link to="/resumes">
+          {/* <Link to="/resumes"> */}
             <CVFormAPI />
-          </Link>
+          {/* </Link> */}
         </div>
       </div>
     </section>

@@ -26,6 +26,7 @@ const AddEducation = (props) => {
       .then((json) => setData(json))
       .catch((error) => console.error(error));
   }, []);
+  
 
   //about educational
   const [inputEducational, setInputEducational] = useState(
@@ -42,12 +43,16 @@ const AddEducation = (props) => {
   const [inputDegree, setInputDegree] = useState(
     sessionStorage.getItem("degree") || ""
   );
+  const [inputDegreeId, setInputDegreeId] = useState(0)
   const HandleChangeDegree = (event) => {
-    setInputDegree(event.target.value);
+    setInputDegree((parseInt(event.target.selectedOptions[0].id,10)));
+    setInputDegreeId(parseInt(event.target.selectedOptions[0].id))
+    // console.log(typeof(inputDegreeId))
   };
+
   useEffect(() => {
-    sessionStorage.setItem("degree", inputDegree);
-  }, [inputDegree]);
+    sessionStorage.setItem("degree_id", inputDegreeId);
+  }, [inputDegreeId]);
 
   // ending date
 
@@ -96,7 +101,7 @@ const AddEducation = (props) => {
         <div className="degree">
           <label htmlFor="degree-dropdwon">ხარისხი</label>
           <select
-            id="degree-dropdwon"
+            className="degree-dropdwon"
             required
             onChange={HandleChangeDegree}
             value={inputDegree}
@@ -105,7 +110,7 @@ const AddEducation = (props) => {
               აირჩიეთ ხარისხი
             </option>
             {data
-              ? data.map((item) => <option key={item.id}>{item.title}</option>)
+              ? data.map((item) => <option id={item.id} key={item.id}>{item.title}</option>)
               : "Loading..."}
           </select>
         </div>

@@ -1,6 +1,8 @@
 import React from "react";
 import "./Resume.css";
 import star from "../UI/Assets/Images/star-logo.png";
+import mailIcon from  "../UI/Assets/Images/email.png"
+import phoneIcon from  "../UI/Assets/Images/phone.png"
 
 const Resume = (props) => {
   return (
@@ -16,17 +18,24 @@ const Resume = (props) => {
           <div className="resume-contact">
             <div className="resume-mail-and-icon">
               <img
-                className="resume-mail"
-                src="./assets/images/mailIcon.svg"
+                className="resume-mail-icon"
+                src={mailIcon}
+                style={{
+                  display: props.email ? "block" : "none",
+                }}
                 alt=""
+                
               />
               <span className="resume-mail">{props.email}</span>
             </div>
             <div className="resume-phone-nuber-icon">
               <img
                 className="resume-phone-icons"
-                src="./assets/images/phoneIcon.svg"
+                src={phoneIcon}
                 alt=""
+                style={{
+                  display: props.mobile ? "block" : "none",
+                }}
               />
               <span className="resume-phone-number">{props.mobile}</span>
             </div>

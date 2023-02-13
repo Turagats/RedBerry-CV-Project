@@ -40,19 +40,16 @@ const CVFormAPI = () => {
 
     // console.log(profileImage)
   };
- 
-  let blobPhoto; 
 
-   
+  let blobPhoto;
+
   fetch(photo)
-  .then((res) => res.blob())
-  .then((blob) => blobPhoto = blob)
-
+    .then((res) => res.blob())
+    .then((blob) => (blobPhoto = blob));
 
   const handleUpload = () => {
-    
-    console.log("asdasd", photo)
-    console.log(photoAPI)
+    console.log("asdasd", photo);
+    console.log(photoAPI);
 
     let inputDegree = Number(sessionStorage.getItem("degree_id" || ""));
     const inputEducationEndingDate = sessionStorage.getItem(
@@ -130,9 +127,8 @@ const CVFormAPI = () => {
       formData.educations[0].description
     );
 
-      // const photoBlob = new Blob(photo, "multipart/form-data") 
-      // console.log(photoBlob)
-
+    // const photoBlob = new Blob(photo, "multipart/form-data")
+    // console.log(photoBlob)
 
     formImageData.append("image", blobPhoto);
     formImageData.append("about_me", formData.about_me);
@@ -154,12 +150,13 @@ const CVFormAPI = () => {
       })
       .then((response) => {
         console.log(response);
-        // window.location.href = "/resumes";
+        sessionStorage.setItem("response", response.data )
+        sessionStorage.setItem('data', JSON.stringify(response.data));
+        window.location.href = "/resumes";
       })
       .catch((error) => console.log(error));
   };
 
-  
   // const handleChange = (event) => {
   //   setFormData({
   //     ...formData,

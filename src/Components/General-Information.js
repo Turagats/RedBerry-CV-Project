@@ -34,13 +34,11 @@ const GeneralInformation = ({ children }) => {
   //   sessionStorage.getItem("profile-photo-API") || null
   // );
   function updateInput(e) {
-    console.log(1);
     const fr = new FileReader();
     fr.readAsDataURL(e.target.files[0]);
     fr.addEventListener("load", () => {
       setPhoto(fr.result);
     });
-    console.log(photo)
   }
 
   // const handleChange = (e) => {
@@ -449,6 +447,7 @@ const GeneralInformation = ({ children }) => {
               უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს
             </span>
           </div>
+
           <div id="buttons-next-back">
             <Link to="/experience" className="button-wrapper-to-link">
               <button id="button-next">შემდეგი</button>

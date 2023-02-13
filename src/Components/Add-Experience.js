@@ -113,7 +113,7 @@ const AddExperience = (props) => {
   useEffect(() => {
     sessionStorage.setItem("about-job", inputAboutJob);
   }, [inputAboutJob]);
-
+  console.log(inputEndingDate)
   return (
     <div className="experinece-inofrmation-component">
       <Resume

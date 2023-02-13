@@ -1,3 +1,5 @@
+
+
 .resume-block {
 
     width: 822px;
@@ -53,8 +55,9 @@ h3 {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 0.625rem;
-}
+    margin-bottom: 0.625rem;    
+    
+    }
 
 .resume-profile-img {
     position: absolute;
@@ -64,7 +67,10 @@ h3 {
     /* box-shadow: rgba(0, 0, 0, 15) 0px 3px 10px; */
 }
 
-
+.resume-phone-icons,
+.resume-mail-icon {
+    margin-right: 1rem;
+}
 
 
 .resume-dates,

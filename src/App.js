@@ -7,14 +7,15 @@ import EducationPage from "./Components/Education-page";
 // import Resume from "./Components/Resume";
 // import Sacdeli from "./Components/sacdeli";
 import Resume from "./Components/Resume";
+import ResponseResume from "./Components/ResponseResume";
 
 const router = createBrowserRouter([
   { path: "/", element: <LandingPage /> },
   { path: "/general-information", element: <GeneralInformation /> },
   { path: "/experience", element: <ExperincePage /> },
   { path: "/education", element: <EducationPage /> },
-  { path: "/resumes", element: <Resume /> },
-  
+  { path: "/resumes", element: <ResponseResume /> },
+
   // { path: "/sacdeli", element: <Sacdeli /> },
 ]);
 

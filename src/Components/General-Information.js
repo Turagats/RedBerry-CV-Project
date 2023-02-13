@@ -6,8 +6,9 @@ import forbackVector from "../UI/Assets/Images/Vector.svg";
 import Resume from "./Resume";
 import redTriangle from "../UI/Assets/Images/red-triangle.png";
 import greenCheck from "../UI/Assets/Images/green-bird.png";
+import { Buffer } from "buffer";
 
-const GeneralInformation = ({children}) => {
+const GeneralInformation = ({ children }) => {
   const inputPosition = sessionStorage.getItem("position" || "");
   const inputEmployer = sessionStorage.getItem("employer" || "");
   const inputStartingDate = sessionStorage.getItem("starting-date" || "");
@@ -29,20 +30,62 @@ const GeneralInformation = ({children}) => {
   const [photo, setPhoto] = useState(
     sessionStorage.getItem("profile-photo") || null
   );
+  // const [photoAPI, setPhotoAPI] = useState(
+  //   sessionStorage.getItem("profile-photo-API") || null
+  // );
+  function updateInput(e) {
+    console.log(1);
+    const fr = new FileReader();
+    fr.readAsDataURL(e.target.files[0]);
+    fr.addEventListener("load", () => {
+      setPhoto(fr.result);
+    });
+    console.log(photo)
+  }
 
-  const handleChange = (e) => {
-    setPhoto(URL.createObjectURL(e.target.files[0]));
-    // setPhoto(e.target.files[0]);
+  // const handleChange = (e) => {
 
-    console.log(e.target.files[0]);
-    console.log(URL.createObjectURL(e.target.files[0]));
-    
-  };
+  //     // fr.addEventListener('load', () => {
+  //     //   const url = fr.result;})
+
+  //     // setPhoto(URL.createObjectURL(e.target.files[0]));
+
+  //     // setPhoto(e.target.files[0]);
+  //     // setPhotoAPI(e.target.files[0])
+
+  //     // console.log(e.target.files[0]);
+  //     // console.log(URL.createObjectURL(e.target.files[0]));
+  //   }
 
   useEffect(() => {
     sessionStorage.setItem("profile-photo", photo);
   }, [photo]);
+  // useEffect(() => {
+  //   sessionStorage.setItem("profile-photo-API", photoAPI);
+  // }, [photoAPI]);
 
+  // const binaryData = new Buffer.from(photo).toString('binary');
+  // console.log(binaryData)
+
+  // binary data
+  // const [image, setImage] = useState(null);
+  // const [binaryData, setBinaryData] = useState(null);
+
+  // const handleImageChange = e => {
+  //   const reader = new FileReader();
+  //   reader.onloadend = () => {
+  //     setImage(reader.result);
+  //     setBinaryData(new Buffer.from(reader.result).toString('binary'));
+  //   };
+  //   reader.readAsDataURL(e.target.files[0]);
+  //   console.log(1)
+  //   console.log(image)
+  //   console.log(2)
+  // };
+
+  // console.log(1)
+  // console.log(binaryData)
+  // console.log(2)
   // Name
 
   const [inputName, setInputName] = useState(
@@ -271,14 +314,31 @@ const GeneralInformation = ({children}) => {
             <div className="upload-photo-button" onClick={uploadFile}>
               ატვირთვა
               <input
+                name="image"
                 type="file"
                 id="image-input"
                 style={{ display: "none" }}
-                onChange={handleChange}
+                onChange={updateInput}
                 required
               />
             </div>
           </div>
+
+          {/* <div className="upload-photo">
+            <h4 className="upload-photo-header">პირადი binary ატვირთვა</h4>
+
+            <div className="upload-photo-button" onClick={uploadFile}>
+              ატვირთვა
+              <input
+                name="image"
+                type="file"
+                id="image-input"
+                style={{ display: "none" }}
+                onChange={handleImageChange}
+                required
+              />
+            </div>
+          </div> */}
 
           <div className="about-me-optional">
             <label htmlFor="about-me-text">ჩემ შესახებ (არასავალდებულო)</label>
@@ -413,8 +473,6 @@ const GeneralInformation = ({children}) => {
         aboutEducation={inputAboutEducation}
         src={photo}
       />
-      
-    
     </section>
   );
 };

@@ -1,7 +1,6 @@
 import axios from "axios";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import { useState } from "react";
-
 
 const CVFormAPI = () => {
   const inputPosition = sessionStorage.getItem("position" || "");
@@ -20,9 +19,8 @@ const CVFormAPI = () => {
   const inputEmail = sessionStorage.getItem("email" || "");
   const inputMobile = sessionStorage.getItem("mobile" || "");
   const photo = sessionStorage.getItem("profile-photo" || null);
-  const [finalPhoto, setFinalPhoto] = useState(null)
-
-  
+  // const [finalPhoto, setFinalPhoto] = useState(null);
+  const photoAPI = sessionStorage.getItem("profile-photo-API");
   // const imageBlob = new Blob(photo);
   // const reader = new FileReader();
 
@@ -42,12 +40,20 @@ const CVFormAPI = () => {
 
     // console.log(profileImage)
   };
-  
+ 
+  let blobPhoto; 
 
-  
+   
+  fetch(photo)
+  .then((res) => res.blob())
+  .then((blob) => blobPhoto = blob)
 
-  
+
   const handleUpload = () => {
+    
+    console.log("asdasd", photo)
+    console.log(photoAPI)
+
     let inputDegree = Number(sessionStorage.getItem("degree_id" || ""));
     const inputEducationEndingDate = sessionStorage.getItem(
       "education-ending-date" || ""
@@ -124,18 +130,36 @@ const CVFormAPI = () => {
       formData.educations[0].description
     );
 
-    formImageData.append("image", photo);
+      // const photoBlob = new Blob(photo, "multipart/form-data") 
+      // console.log(photoBlob)
+
+
+    formImageData.append("image", blobPhoto);
     formImageData.append("about_me", formData.about_me);
 
+    //   axios
+    //     .post("https://resume.redberryinternship.ge/api/cvs", formImageData)
+    //     .then((response) => {
+    //       console.log(response);
+    //       window.location.href = "/resumes";
+    //     })
+    //     .catch((error) => console.log(error));
+    // };
+
     axios
-      .post("https://resume.redberryinternship.ge/api/cvs", formImageData)
+      .post("https://resume.redberryinternship.ge/api/cvs", formImageData, {
+        headers: {
+          "content-type": "multipart/form-data",
+        },
+      })
       .then((response) => {
         console.log(response);
-        window.location.href = "/resumes";
+        // window.location.href = "/resumes";
       })
       .catch((error) => console.log(error));
   };
 
+  
   // const handleChange = (event) => {
   //   setFormData({
   //     ...formData,
@@ -176,18 +200,14 @@ const CVFormAPI = () => {
 
   return (
     <div>
-      
       {/* <Link to="/resumes"> */}
       <button className="button-finish" type="submit" onClick={handleUpload}>
         დასრულება
       </button>
-      
-      
+
       {/* </Link> */}
       {/* <input type="file" onChange={handleFileChange} /> */}
       {/* <button onClick={handleUpload}>Upload</button> */}
-      
-      
     </div>
   );
 };

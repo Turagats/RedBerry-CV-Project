@@ -17,11 +17,11 @@
 
 .background-logo {
     width: 18.6875rem;
-      height: 18.6875rem;
-      position: absolute;
-      top: -2.5rem;
-      right: -11.4375rem;
-      z-index: -1;
+    height: 18.6875rem;
+    position: absolute;
+    top: -2.5rem;
+    right: -11.4375rem;
+    z-index: -1;
 }
 
 .button-and-logo {
@@ -42,7 +42,7 @@
     border-radius: 8px;
     cursor: pointer;
     padding: 1.125rem 7.875rem;
-  
+
 }
 
 .resume-block {
@@ -52,5 +52,4 @@
     right: 0px;
     top: 0px;
     background: #FFFFFF;
-  }
-  
+}

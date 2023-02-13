@@ -1,12 +1,14 @@
-.response-resume-block{
+.response-resume-block {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;      
+    height: 100vh;
 
 }
 
-.response-resume-view{
+
+
+.response-resume-view {
     width: 51.375rem;
     padding: 3rem 5rem;
     height: 67.5rem;
@@ -15,7 +17,7 @@
     background-color: #ffffff;
     font-weight: 400;
     border: 0.8px solid #000000;
-    
+
 }
 
 .response-resume-experience,
@@ -26,57 +28,6 @@
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* .resume-block {
-
-    width: 822px;
-    height: 1080px;
-    right: 0px;
-    top: 0px;
-    background: #FFFFFF;
-} */
 
 
 .response-resume-personal-information {
@@ -95,21 +46,34 @@
 
 .lucky-resume {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    padding: 28px 30px 30px;
+    /* flex-direction: row; */
+    /* align-items: center; */
+    padding: 0px 30px ;
     gap: 10px;
-
     position: absolute;
     width: 427px;
     height: 167px;
-    left: 1423px;
-    top: 53px;
+    left: 1750px;
+    top: 45px;
+    font-family: 'Helvetica Neue';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 43px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
 
     background: #FFFFFF;
     border: 1px solid #E4E4E4;
     box-shadow: 0px 4px 28px rgba(0, 0, 0, 0.25);
     border-radius: 8px;
+}
+
+.close-logo {
+    position: relative;
+    margin-left: 360px;
+    margin-top: -200px;
 }
 
 
@@ -134,9 +98,9 @@ h3 {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    margin-bottom: 0.625rem;    
-    
-    }
+    margin-bottom: 0.625rem;
+
+}
 
 .response-resume-profile-img {
     position: absolute;

@@ -1,6 +1,4 @@
 import axios from "axios";
-// import { Link } from "react-router-dom";
-import { useState } from "react";
 
 const CVFormAPI = () => {
   const inputPosition = sessionStorage.getItem("position" || "");
@@ -9,9 +7,7 @@ const CVFormAPI = () => {
   const inputEndingDate = sessionStorage.getItem("ending-date" || "");
   const inputAboutJob = sessionStorage.getItem("about-job" || "");
   const inputEducational = sessionStorage.getItem("educational" || "");
-  const inputEducationEndingDate = sessionStorage.getItem(
-    "education-ending-date" || ""
-  );
+
   const inputAboutEducation = sessionStorage.getItem("about-education" || "");
   const inputName = sessionStorage.getItem("name") || "";
   const inputLastName = sessionStorage.getItem("lastname" || "");
@@ -28,18 +24,9 @@ const CVFormAPI = () => {
 
   // fot photo upload
 
-  const [selectedFile, setSelectedFile] = useState(null);
 
   // inputDegree = Number(inputDegree)
-  const handleFileChange = (event) => {
-    const photo123 = sessionStorage.getItem("profile123" || null);
-    console.log(photo123);
-    // URL.revokeObjectURL(photo123)
-    setSelectedFile(event.target.files[0]);
-    sessionStorage.setItem("profile-image", event.target.files[0]);
-
-    // console.log(profileImage)
-  };
+ 
 
   let blobPhoto;
 
@@ -132,15 +119,6 @@ const CVFormAPI = () => {
 
     formImageData.append("image", blobPhoto);
     formImageData.append("about_me", formData.about_me);
-
-    //   axios
-    //     .post("https://resume.redberryinternship.ge/api/cvs", formImageData)
-    //     .then((response) => {
-    //       console.log(response);
-    //       window.location.href = "/resumes";
-    //     })
-    //     .catch((error) => console.log(error));
-    // };
 
     axios
       .post("https://resume.redberryinternship.ge/api/cvs", formImageData, {

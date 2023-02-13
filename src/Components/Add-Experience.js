@@ -82,26 +82,41 @@ const AddExperience = (props) => {
 
 
   //start date
+  const [isStaringDateTouched, setIsStaringDateTouched] = useState(false)
+  const [isStartDateValid, setIsStartDateValid]= useState(false)
   const [inputStartingDate, setInputStartingDate] = useState(
     sessionStorage.getItem("starting-date") || ""
   );
   const HandleChangeStartingDate = (event) => {
     setInputStartingDate(event.target.value);
+    setIsStartDateValid(true)
   };
   useEffect(() => {
     sessionStorage.setItem("starting-date", inputStartingDate);
   }, [inputStartingDate]);
 
+  const HandleblurStartingDate = () => {
+    setIsStaringDateTouched(true)
+  }
+
+
   //end date
+  const [isEndinggDateTouched, setIsEndinggDateTouched] = useState(false)
+  const [isEndingDateValid, setIsEndingDateValid]= useState(false)
   const [inputEndingDate, setInputEndingDate] = useState(
     sessionStorage.getItem("ending-date") || ""
   );
   const HandleChangeEndingDate = (event) => {
     setInputEndingDate(event.target.value);
+    setIsEndingDateValid(true)
   };
   useEffect(() => {
     sessionStorage.setItem("ending-date", inputEndingDate);
   }, [inputEndingDate]);
+
+  const HandleBlurEdingDate = () => {
+    setIsEndinggDateTouched(true)
+  }
 
   //about job
   const [inputAboutJob, setInputAboutJob] = useState(
@@ -217,6 +232,8 @@ const AddExperience = (props) => {
             value={inputStartingDate}
             required
             onChange={HandleChangeStartingDate}
+            onBlur={HandleblurStartingDate}
+            style={{borderColor : isStaringDateTouched ? isStartDateValid ? "green" : "red" : "black"}}
           />
         </div>
         <div className="end-date">
@@ -225,8 +242,11 @@ const AddExperience = (props) => {
             type="date"
             id="end-date"
             onChange={HandleChangeEndingDate}
+            onBlur={HandleBlurEdingDate}
             required
             value={inputEndingDate}
+            style={{borderColor : isEndinggDateTouched ? isEndingDateValid ? "green" : "red" : "black"}}
+
           />
         </div>
       </div>

@@ -4,9 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import GeneralInformation from "./Components/General-Information";
 import ExperincePage from "./Components/Experience-Page";
 import EducationPage from "./Components/Education-page";
-// import Resume from "./Components/Resume";
-// import Sacdeli from "./Components/sacdeli";
-import Resume from "./Components/Resume";
+
 import ResponseResume from "./Components/ResponseResume";
 
 const router = createBrowserRouter([

@@ -38,7 +38,7 @@ const AddEducation = (props) => {
     sessionStorage.setItem("educational", inputEducational);
   }, [inputEducational]);
 
-// validate educational
+  // validate educational
   const [isEducationValid, setIsEducationValid] = useState(false);
   const [isEducationTouched, setEducationTouched] = useState(false);
 
@@ -52,6 +52,8 @@ const AddEducation = (props) => {
   };
 
   //anbout degree
+  const [isDegreeTouched, setIsDegreeTouched] = useState(false);
+  const [isDegreeValid, setIsDegreeValid] = useState(false);
   const [inputDegree, setInputDegree] = useState(
     sessionStorage.getItem("degree") || ""
   );
@@ -61,31 +63,43 @@ const AddEducation = (props) => {
   const HandleChangeDegree = (event) => {
     setInputDegree(event.target.value);
     setInputDegreeId(event.target.selectedOptions[0].id);
+    setIsDegreeValid(true)
     // console.log(typeof(inputDegreeId))
+
+    
+  };
+  
+  const HandleBlurSelect = () => {
+    setIsDegreeTouched(true);
   };
 
+
   useEffect(() => {
-    
     sessionStorage.setItem("degree", inputDegree);
   }, [inputDegree]);
 
   useEffect(() => {
-    console.log(inputDegreeId)
+    console.log(inputDegreeId);
     sessionStorage.setItem("degree_id", inputDegreeId);
   }, [inputDegreeId]);
 
   // ending date
-
+  const [isEndinggDateTouched, setIsEndinggDateTouched] = useState(false);
+  const [isEndingDateValid, setIsEndingDateValid] = useState(false);
   const [inputEducationEndingDate, setInputEducationEndingDate] = useState(
     sessionStorage.getItem("education-ending-date") || ""
   );
   const HandleChangeEducationEndingDate = (event) => {
     setInputEducationEndingDate(event.target.value);
+    setIsEndingDateValid(true);
   };
   useEffect(() => {
     sessionStorage.setItem("education-ending-date", inputEducationEndingDate);
   }, [inputEducationEndingDate]);
-  
+
+  const HandleBlurEdingDate = () => {
+    setIsEndinggDateTouched(true);
+  };
 
   // about education
 
@@ -98,6 +112,9 @@ const AddEducation = (props) => {
   useEffect(() => {
     sessionStorage.setItem("about-education", inputAboutEducation);
   }, [inputAboutEducation]);
+
+  
+
 
   return (
     <div className="education-information-component">
@@ -121,20 +138,30 @@ const AddEducation = (props) => {
                 : "black",
             }}
           />
-          <img className="green-check" src={greenCheck} alt="" style={{
-                    display: isEducationValid
-                      ? isEducationValid
-                        ? "block"
-                        : "none"
-                      : "none",
-                  }}/>
-          <img className="red-triangle" src={redTriangle} alt="" style={{
-                    display: isEducationTouched
-                      ? isEducationValid
-                        ? "none"
-                        : "block"
-                      : "none",
-                  }}/>
+          <img
+            className="green-check"
+            src={greenCheck}
+            alt=""
+            style={{
+              display: isEducationValid
+                ? isEducationValid
+                  ? "block"
+                  : "none"
+                : "none",
+            }}
+          />
+          <img
+            className="red-triangle"
+            src={redTriangle}
+            alt=""
+            style={{
+              display: isEducationTouched
+                ? isEducationValid
+                  ? "none"
+                  : "block"
+                : "none",
+            }}
+          />
         </div>
         <span className="for-hint">მინიმუმ 2 სიმბოლო</span>
       </div>
@@ -145,7 +172,15 @@ const AddEducation = (props) => {
             className="degree-dropdwon"
             required
             onChange={HandleChangeDegree}
+            onBlur={HandleBlurSelect}
             value={inputDegree}
+            style={{
+              borderColor: isDegreeTouched
+                ? isDegreeValid
+                  ? "green"
+                  : "red"
+                : "black",
+            }}
           >
             <option disabled selected>
               აირჩიეთ ხარისხი
@@ -167,6 +202,14 @@ const AddEducation = (props) => {
             value={inputEducationEndingDate}
             required
             onChange={HandleChangeEducationEndingDate}
+            onBlur={HandleBlurEdingDate}
+            style={{
+              borderColor: isEndinggDateTouched
+                ? isEndingDateValid
+                  ? "green"
+                  : "red"
+                : "black",
+            }}
           />
         </div>
       </div>

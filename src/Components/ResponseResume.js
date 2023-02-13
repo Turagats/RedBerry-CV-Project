@@ -17,7 +17,7 @@ const ResponseResume = () => {
         className="lucky-resume"
         style={{ display: close ? "block" : "none" }}
       >
-        <img className="close-logo" src={closeLogo} onClick={HandleClose}></img>
+        <img className="close-logo" src={closeLogo} onClick={HandleClose} alt=""></img>
         რეზიუმე წარმატებით გაიგზავნა 🎉
         <div></div>
       </div>

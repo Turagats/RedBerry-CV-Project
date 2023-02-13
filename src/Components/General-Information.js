@@ -6,7 +6,7 @@ import forbackVector from "../UI/Assets/Images/Vector.svg";
 import Resume from "./Resume";
 import redTriangle from "../UI/Assets/Images/red-triangle.png";
 import greenCheck from "../UI/Assets/Images/green-bird.png";
-import { Buffer } from "buffer";
+
 
 const GeneralInformation = ({ children }) => {
   const inputPosition = sessionStorage.getItem("position" || "");

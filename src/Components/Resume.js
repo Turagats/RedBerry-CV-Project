@@ -48,7 +48,6 @@ const Resume = (props) => {
               height: "246px",
               borderRadius: "50%",
               overflow: "hidden",
-              display: props.src ? "block" : "none",
             }}
             className="resume-profile-img"
           >
@@ -58,7 +57,7 @@ const Resume = (props) => {
               style={{
                 width: "100%",
                 height: "100%",
-                display : props.src  ?   "block" :  "block"
+                display: props.src ? "block" : "none",
               }}
             ></img>
           </div>

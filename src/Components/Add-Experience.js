@@ -41,11 +41,12 @@ const AddExperience = (props) => {
 
   const HandeChengePosition = (event) => {
     setInputPosition(event.target.value);
-    setIsPositionTouched(true);
+    
   };
 
   const handleBlurPosition = () => {
-    if (isPositionValid.length >= 2) {
+    setIsPositionTouched(true);
+    if (inputPosition.length >= 2) {
       setIsPositionValid(true);
     } else {
       setIsPositionValid(false);
@@ -63,6 +64,22 @@ const AddExperience = (props) => {
   useEffect(() => {
     sessionStorage.setItem("employer", inputEmployer);
   }, [inputEmployer]);
+
+
+  //validate employer.
+  const [isEmployerValid, setIsEmployerValid] = useState(false);
+  const [isEmployerTouched, setEmployerTouched] = useState(false);
+
+  const handleBlurEmployer = () => {
+    setEmployerTouched(true);
+    if (inputEmployer.length >= 2) {
+      setIsEmployerValid(true);
+    } else {
+      setIsEmployerValid(false);
+    }
+  };
+  
+
 
   //start date
   const [inputStartingDate, setInputStartingDate] = useState(
@@ -164,10 +181,30 @@ const AddExperience = (props) => {
             placeholder="დამსაქმებელი"
             value={inputEmployer}
             onChange={HandeChengeEmployer}
+            onBlur={handleBlurEmployer}
             required
+            style={{
+              borderColor: isEmployerTouched
+                ? isEmployerValid
+                  ? "green"
+                  : "red"
+                : "black",
+            }}
           />
-          <img className="green-check" src={greenCheck} alt="" />
-          <img className="red-triangle" src={redTriangle} alt="" />
+          <img className="green-check" src={greenCheck} alt="" style={{
+                    display: isEmployerValid
+                      ? isEmployerValid
+                        ? "block"
+                        : "none"
+                      : "none",
+                  }}/>
+          <img className="red-triangle" src={redTriangle} alt="" style={{
+                    display: isEmployerTouched
+                      ? isEmployerValid
+                        ? "none"
+                        : "block"
+                      : "none",
+                  }}/>
         </div>
         <span className="for-hint">მინიმუმ 2 სიმბოლო</span>
       </div>

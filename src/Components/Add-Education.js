@@ -38,6 +38,19 @@ const AddEducation = (props) => {
     sessionStorage.setItem("educational", inputEducational);
   }, [inputEducational]);
 
+// validate educational
+  const [isEducationValid, setIsEducationValid] = useState(false);
+  const [isEducationTouched, setEducationTouched] = useState(false);
+
+  const handleBlurEducational = () => {
+    setEducationTouched(true);
+    if (inputEducational.length >= 2) {
+      setIsEducationValid(true);
+    } else {
+      setIsEducationValid(false);
+    }
+  };
+
   //anbout degree
   const [inputDegree, setInputDegree] = useState(
     sessionStorage.getItem("degree") || ""
@@ -97,11 +110,31 @@ const AddEducation = (props) => {
             name=""
             placeholder="სასწავლებელი"
             onChange={HandleChangeEducational}
+            onBlur={handleBlurEducational}
             value={inputEducational}
             required
+            style={{
+              borderColor: isEducationTouched
+                ? isEducationValid
+                  ? "green"
+                  : "red"
+                : "black",
+            }}
           />
-          <img className="green-check" src={greenCheck} alt="" />
-          <img className="red-triangle" src={redTriangle} alt="" />
+          <img className="green-check" src={greenCheck} alt="" style={{
+                    display: isEducationValid
+                      ? isEducationValid
+                        ? "block"
+                        : "none"
+                      : "none",
+                  }}/>
+          <img className="red-triangle" src={redTriangle} alt="" style={{
+                    display: isEducationTouched
+                      ? isEducationValid
+                        ? "none"
+                        : "block"
+                      : "none",
+                  }}/>
         </div>
         <span className="for-hint">მინიმუმ 2 სიმბოლო</span>
       </div>
